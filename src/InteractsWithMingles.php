@@ -9,11 +9,6 @@ trait InteractsWithMingles
 {
     public $mingleId;
 
-    public function componentKey(): string
-    {
-        return Str::before($this->component(), '/');
-    }
-
     public function mingleBoot(Collection $data): Collection
     {
         //
@@ -35,7 +30,6 @@ trait InteractsWithMingles
 
     public function render()
     {
-
         return view('mingle::mingle');
     }
 }

@@ -7,9 +7,8 @@ const createComponent = (mingleId, wireId, Component) => {
         el = document.getElementById(mingleId),
         wire = window.Livewire.find(wireId)
 
-    if (!el) {
+    if (! el) {
         throw new Error(`Element for type '${Component}' with id '${mingleId}' not found.`)
-        return
     }
 
     el.dataset.reactApp = 'true'
@@ -19,4 +18,20 @@ const createComponent = (mingleId, wireId, Component) => {
     root.render(<Component wire={wire} wireId={wireId} mingleData={JSON.parse(el.dataset.mingleData)} />)
 }
 
-export { createComponent as createReact }
+const registerReactMingle = (name, component) => {
+    window.Mingle = window.Mingle || {
+        Elements: {}
+    }
+
+    window.Mingle.Elements[name] = {
+        boot(mingleId, wireId) {
+            createComponent(mingleId, wireId, component)
+        }
+    }
+}
+
+export {
+    // createComponent as createReact,
+    registerReactMingle }
+
+export default registerReactMingle
