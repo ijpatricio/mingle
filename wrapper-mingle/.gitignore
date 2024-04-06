@@ -5,7 +5,6 @@
 /public/storage
 /storage/*.key
 /vendor
-.env
 .env.backup
 .env.production
 .phpunit.result.cache
@@ -17,3 +16,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# This is a wrapper-app, so let's not ignore
+#.env

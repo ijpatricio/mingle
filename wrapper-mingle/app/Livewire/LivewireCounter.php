@@ -15,6 +15,6 @@ class LivewireCounter extends Component
 
     public function render()
     {
-        return view('livewire.livewire-counter');
+        return view('livewire.counter');
     }
 }

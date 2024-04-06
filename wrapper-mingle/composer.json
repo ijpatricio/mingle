@@ -14,7 +14,6 @@
         "php": "^8.2",
         "ijpatricio/mingle": "dev-main",
         "laravel/framework": "^11.0",
-        "laravel/jetstream": "^5.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0"
