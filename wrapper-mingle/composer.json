@@ -7,7 +7,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../"
+            "url": "../mingle-package"
         }
     ],
     "require": {
