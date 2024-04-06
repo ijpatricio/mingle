@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Ijpatricio\Mingle\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MingleCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'mingle';
 
     public $description = 'My command';
 
