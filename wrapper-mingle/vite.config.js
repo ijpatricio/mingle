@@ -10,11 +10,6 @@ export default defineConfig({
             "@mingle": path.resolve(__dirname, "/vendor/ijpatricio/mingle/resources/js"),
         },
     },
-    // build: {
-    //     rollupOptions: {
-    //         external: ['react', 'react-dom/client']
-    //     }
-    // },
     plugins: [
         laravel({
             input: [

@@ -23,6 +23,5 @@
                 {{ $label }}
             </a>
         </li>
-
     @endforeach
 </ul>
