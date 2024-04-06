@@ -6,16 +6,22 @@
 
     <div class="mt-8 flex gap-4 items-center">
 
-        <x-button wire:click="increment(-1)">
+        <button type="button"
+                class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                wire:click="increment(-1)"
+        >
             Decrement -
-        </x-button>
+        </button>
 
         <div>
             Current Count: {{ $count }}
         </div>
 
-        <x-button wire:click="increment">
+        <button type="button"
+                class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            wire:click="increment"
+        >
             Increment +
-        </x-button>
+        </button>
     </div>
 </div>

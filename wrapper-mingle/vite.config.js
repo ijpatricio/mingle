@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import path from 'path'
 
 export default defineConfig({
@@ -14,7 +14,11 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
             ],
-            refresh: true,
+            refresh: [
+                ...refreshPaths,
+                'app/**/*.php',
+                'resources/**/*.php',
+            ],
         }),
     ],
 });
