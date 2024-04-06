@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class MingleCommand extends Command
 {
-    public $signature = 'minglejs';
+    public $signature = 'mingle';
 
     public $description = 'My command';
 

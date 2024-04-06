@@ -16,10 +16,10 @@ class MingleServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('minglejs')
+            ->name('mingle')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_minglejs_table')
+            ->hasMigration('create_mingle_table')
             ->hasCommand(MingleCommand::class);
     }
 }

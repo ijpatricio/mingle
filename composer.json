@@ -1,12 +1,12 @@
 {
-    "name": "ijpatricio/minglejs",
-    "description": "Use JS components in Livewire Applications",
+    "name": "ijpatricio/mingle",
+    "description": "This is my package mingle",
     "keywords": [
         "ijpatricio",
         "laravel",
-        "minglejs"
+        "mingle"
     ],
-    "homepage": "https://github.com/ijpatricio/minglejs",
+    "homepage": "https://github.com/ijpatricio/mingle",
     "license": "MIT",
     "authors": [
         {
@@ -43,7 +43,7 @@
     },
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-minglejs --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-mingle --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",

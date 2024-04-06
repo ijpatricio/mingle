@@ -1,3 +1,3 @@
 # Changelog
 
-All notable changes to `minglejs` will be documented in this file.
+All notable changes to `mingle` will be documented in this file.
