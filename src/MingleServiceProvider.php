@@ -19,7 +19,6 @@ class MingleServiceProvider extends PackageServiceProvider
             ->name('mingle')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_mingle_table')
             ->hasCommand(MingleCommand::class);
     }
 }
