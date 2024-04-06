@@ -7,12 +7,15 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../mingle-package"
+            "url": "packages/mingle",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
         "php": "^8.2",
-        "ijpatricio/mingle": "dev-main",
+        "ijpatricio/mingle": "*",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

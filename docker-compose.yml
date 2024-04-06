@@ -18,11 +18,11 @@ services:
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
-            # The wrapper app is mounted to `/var/www`, on a `html` folder, as a regular website
+            # The wrapper app is mounted to `/var/www/html` folder, as a regular website
             - './wrapper-mingle:/var/www/html'
-            # The root dir is mounted to `/var/www`, on a folder.
+            # The root dir is mounted on another folder.
             # The wrapper app will use this from composer.json configuration.
-            - '.:/var/www/mingle-package'
+            - '.:/var/www/html/packages/mingle'
         networks:
             - sail
         depends_on: {  }

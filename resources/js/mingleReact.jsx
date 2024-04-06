@@ -1,5 +1,5 @@
-import React from '@laravel-base-path/node_modules/react'
-import {createRoot} from '@laravel-base-path/node_modules/react-dom/client'
+import React from 'react'
+import {createRoot} from 'react-dom/client'
 
 const createComponent = (mingleId, wireId, Component) => {
 

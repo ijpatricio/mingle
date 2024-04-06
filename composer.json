@@ -1,10 +1,12 @@
 {
     "name": "ijpatricio/mingle",
-    "description": "This is my package mingle",
+    "type": "library",
+    "description": "Use Vue and React in Laravel Livewire Applications.",
     "keywords": [
-        "ijpatricio",
         "laravel",
-        "mingle"
+        "livewire",
+        "react",
+        "vue"
     ],
     "homepage": "https://github.com/ijpatricio/mingle",
     "license": "MIT",
