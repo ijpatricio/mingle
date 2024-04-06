@@ -20,6 +20,10 @@ Most likely you will pair Livewire with just one taste of JS framework, but you 
 
 ## Installation
 
+#### WIP WIP 
+
+I'm currently deploying this package to packagist, so that's why it's public right now. Finishing this and docs in a couple of days. Meaning: it works, but no docs... yet. Until April 10 or much before, hopefully!!
+
 You can install the package via composer:
 
 ```bash
