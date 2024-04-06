@@ -5,15 +5,18 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ijpatricio/mingle/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ijpatricio/mingle/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/ijpatricio/mingle.svg?style=flat-square)](https://packagist.org/packages/ijpatricio/mingle)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This is a way of using Vue/React components in a Laravel Livewire app.
 
-## Support us
+It's very different from an SPA or Inertia, because we can use Livewire, Alpine, Vue and React, in the same app.
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/mingle.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/mingle)
+This is very convenient because, for example:
+- we want to use a couple of Vue components on an individual marketing page
+- on another one we want to use React because of a specific component
+- also we want to use Livewire on another
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+Well now you can.
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+Most likely you will pair Livewire with just one taste of JS framework, but you can mix and match as you wish.
 
 ## Installation
 
@@ -23,43 +26,10 @@ You can install the package via composer:
 composer require ijpatricio/mingle
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="mingle-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="mingle-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="mingle-views"
-```
-
-## Usage
-
-```php
-$mingle = new Ijpatricio\Mingle();
-echo $mingle->echoPhrase('Hello, Ijpatricio!');
-```
-
-## Testing
-
-```bash
-composer test
 ```
 
 ## Changelog
@@ -69,10 +39,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
