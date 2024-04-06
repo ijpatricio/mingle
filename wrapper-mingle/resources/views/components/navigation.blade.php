@@ -1,17 +1,27 @@
+@php
+    $regularClasses = "font-bold text-indigo-500 hover:text-indigo-700 hover:bg-indigo-300 rounded-lg hover:shadow-lg py-2 px-4";
+    $activeClasses = "text-indigo-700 underline";
+
+    $pageNav = [
+        'Home' => 'welcome',
+        'Livewire' => 'demo-with-livewire',
+        'React' => 'demo-with-react',
+        'Vue' => 'demo-with-vue',
+    ];
+@endphp
+
 <ul class="flex gap-4 items">
-    <li class="font-bold hover:text-indigo-600 hover:bg-indigo-300 rounded-lg px-2 text-indigo-500">
-        <a href="{{ route('welcome') }}">Home</a>
-    </li>
-    <li class="font-bold hover:text-indigo-600 hover:bg-indigo-300 rounded-lg px-2 text-indigo-500">
-        <a href="{{ route('demo-with-livewire') }}">Livewire</a>
-    </li>
-    <li class="font-bold hover:text-indigo-600 hover:bg-indigo-300 rounded-lg px-2 text-indigo-500">
-        <a href="{{ route('demo-with-react') }}">React</a>
-    </li>
-    <li class="font-bold hover:text-indigo-600 hover:bg-indigo-300 rounded-lg px-2 text-indigo-500">
-        <a href="{{ route('demo-with-vue') }}">Vue</a>
-    </li>
-    @php
-     request()->routeIs('')
-    @endphp
+    @foreach($pageNav as $label => $routeName)
+        <li>
+            <a
+                @class([
+                    $regularClasses,
+                    $activeClasses => request()->routeIs($routeName),
+                ])
+                href="{{ route($routeName) }}"
+            >
+                {{ $label }}
+            </a>
+        </li>
+    @endforeach
 </ul>
