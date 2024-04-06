@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/react-counter/index.jsx',
+                'resources/js/vue-counter/index.js',
             ],
             refresh: [
                 ...refreshPaths,
