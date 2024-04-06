@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class LivewireCounter extends Component
 {
-    public int $count = 0;
+    public int $count = 1;
 
     public string $message;
 
@@ -15,9 +15,14 @@ class LivewireCounter extends Component
         $this->message = 'Message in a bottle 🍾';
     }
 
-    public function increment($amount = 1)
+    public function keepIt()
     {
-        $this->count += $amount;
+        $this->reset('count');
+    }
+
+    public function doubleIt()
+    {
+        $this->count *= 2;
     }
 
     public function render()

@@ -25,7 +25,7 @@ function Counter({wire, ...props}) {
 
             <div className="mt-8"></div>
 
-            <div> Let's make the operation on the server, for demo purposes. </div>
+            <div> Let's make the operation on the server, for demo purposes.</div>
             <div className="mt-4 flex gap-4 items-center">
                 <Button
                     label="Keep it (reset)"
