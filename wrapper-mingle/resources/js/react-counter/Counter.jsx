@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function HelloWorld({wire, ...props}) {
+function Counter({wire, ...props}) {
 
     const [category, setCategory] = useState('')
 
@@ -23,4 +23,4 @@ function HelloWorld({wire, ...props}) {
     )
 }
 
-export default HelloWorld
+export default Counter

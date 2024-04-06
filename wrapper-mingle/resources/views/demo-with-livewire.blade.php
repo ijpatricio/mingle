@@ -8,7 +8,8 @@
 
         <x-navigation />
 
-        <h1 class="mt-20 text-lg font-bold mb-4">Demo with Livewire</h1>
-        @livewire(\App\Livewire\LivewireCounter::class)
+        <div class="mt-20 bg-white shadow rounded-lg">
+            @livewire(\App\Livewire\LivewireCounter::class)
+        </div>
     </div>
 @endsection

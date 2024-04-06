@@ -1,27 +1,32 @@
 <div class="m-10">
 
     <div class="text-lg">
-        Counter Component
+        Counter Component with Livewire
     </div>
 
-    <div class="mt-8 flex gap-4 items-center">
+    <div class="mt-8">
+        Initial message: {{ $message }}
+    </div>
 
-        <button type="button"
-                class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                wire:click="increment(-1)"
-        >
-            Decrement -
-        </button>
+    <div class="mt-8"></div>
 
-        <div>
-            Current Count: {{ $count }}
-        </div>
+    <div> Livewire (Interacts with server)</div>
+    <div class="mt-2 flex gap-4 items-center">
+        <x-button wire:click="increment(-1)">Decrement -</x-button>
+        <div> Current Count: {{ $count }} </div>
+        <x-button wire:click="increment()">Increment +</x-button>
+    </div>
 
-        <button type="button"
-                class="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            wire:click="increment"
-        >
-            Increment +
-        </button>
+    <div class="mt-16"></div>
+
+    <div> AlpineJS - included in Livewire (Browser only)</div>
+    <div
+        x-data="{
+           count: 0
+       }"
+        class="mt-2 flex gap-4 items-center">
+        <x-button x-on:click="count--">Decrement -</x-button>
+        <div> Current Count: <span x-text="count"/> </div>
+        <x-button x-on:click="count++">Increment +</x-button>
     </div>
 </div>
