@@ -14,7 +14,7 @@ class ReactCounter extends Component implements HasMingles
 
     public function component(): string
     {
-        return 'resources/js/mingles/HelloWorld/index.jsx';
+        return 'resources/js/react-counter/index.jsx';
     }
 
     public function mingleData()
@@ -24,14 +24,8 @@ class ReactCounter extends Component implements HasMingles
         ];
     }
 
-    public function increment($amount = 1)
+    public function doubleIt($amount)
     {
-        $this->count += $amount;
+        return $amount * 2;
     }
-
-    public function getRandomCategory()
-    {
-        return collect(['cars', 'bikes', 'planes', 'boats'])->random();
-    }
-
 }
