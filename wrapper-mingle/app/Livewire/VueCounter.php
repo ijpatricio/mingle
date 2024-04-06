@@ -6,13 +6,13 @@ use Ijpatricio\Mingle\HasMingles;
 use Ijpatricio\Mingle\InteractsWithMingles;
 use Livewire\Component;
 
-class ReactCounter extends Component implements HasMingles
+class VueCounter extends Component implements HasMingles
 {
     use InteractsWithMingles;
 
     public function component(): string
     {
-        return 'resources/js/react-counter/index.jsx';
+        return 'resources/js/vue-counter/index.js';
     }
 
     public function mingleData()

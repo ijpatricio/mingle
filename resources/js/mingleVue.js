@@ -37,4 +37,16 @@ const createComponent = (mingleId, wireId, component) => {
     app.mount(el)
 }
 
-export { createComponent as createVue }
+const registerVueMingle = (name, component) => {
+    window.Mingle = window.Mingle || {
+        Elements: {}
+    }
+
+    window.Mingle.Elements[name] = {
+        boot(mingleId, wireId) {
+            createComponent(mingleId, wireId, component)
+        }
+    }
+}
+
+export default registerVueMingle

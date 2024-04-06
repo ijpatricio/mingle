@@ -5,7 +5,7 @@ function Counter({wire, ...props}) {
 
     const [count, setCount] = useState(1)
 
-    const increment = () => {
+    const doubleCurrentCount = () => {
         wire.doubleIt(count).then((data) => {
             setCount(data)
         })
@@ -16,7 +16,7 @@ function Counter({wire, ...props}) {
     return (
         <div className="m-10">
             <div className="text-lg">
-                Counter Component with React
+                Counter component with React
             </div>
 
             <div className="mt-8">
@@ -36,7 +36,7 @@ function Counter({wire, ...props}) {
 
                 <Button
                     label="Double it - and give it to the next person"
-                    onClick={() => increment(-1)}
+                    onClick={() => doubleCurrentCount(-1)}
                 />
             </div>
         </div>

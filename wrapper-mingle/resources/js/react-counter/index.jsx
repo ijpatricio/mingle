@@ -1,4 +1,4 @@
-import mingle from '@mingle/mingleReact'
+import mingle from '@mingle/mingleReact.jsx'
 import Counter from './Counter.jsx'
 
 mingle('resources/js/react-counter/index.jsx', Counter)

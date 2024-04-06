@@ -1,7 +1,7 @@
 <div class="m-10">
 
     <div class="text-lg">
-        Counter Component with Livewire
+        Counter component with Livewire
     </div>
 
     <div class="mt-8">

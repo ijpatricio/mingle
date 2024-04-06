@@ -30,8 +30,4 @@ const registerReactMingle = (name, component) => {
     }
 }
 
-export {
-    // createComponent as createReact,
-    registerReactMingle }
-
 export default registerReactMingle
