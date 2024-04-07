@@ -1,4 +1,4 @@
-import mingle from '@mingle/mingleVue'
-import Counter from './Counter.vue'
+import mingle from '{{ $mingleFrameworkImport }}'
+import {{ $basename }} from './{{ $componentFile }}'
 
-mingle('{{ $path }}', Counter)
+mingle('{{ $path }}', {{ $basename }})

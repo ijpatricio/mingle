@@ -2,12 +2,9 @@
 
 namespace Ijpatricio\Mingle\Commands;
 
-use Illuminate\Console\Concerns\CreatesMatchingTest;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
@@ -27,8 +24,7 @@ class MingleMakeCommand extends GeneratorCommand
      */
     protected $signature = 'make:mingle
         {name : The Mingle class name}
-        {--vue : Mingle with Vue}
-        {--react : Mingle with React}
+        {framework : The JavaScript framework to be used (react,vue)}
         {--jsfile= : The file path to the JS component, relative to `resources/js`}
         {--force : Create the class even if the mingle already exists}
     ';
@@ -53,18 +49,6 @@ class MingleMakeCommand extends GeneratorCommand
 
         if ($this->canCreateClass() === false) {
             return false;
-        }
-
-        if (! $this->option('vue') && ! $this->option('react')) {
-            $option = select(
-                label: 'Which JavaScript framework do you want to use?',
-                options: [
-                    'vue' => 'Vue',
-                    'react' => 'React',
-                ],
-            );
-
-            $this->addOption($option);
         }
 
         $customOption = 'Other - customize';
@@ -174,25 +158,43 @@ class MingleMakeCommand extends GeneratorCommand
 
         $this->files->put(
             path: $path,
-            contents: $this->buildJavascriptFile($path)
+            contents: $this->buildJavascriptFile($name, $path)
         );
     }
 
-    protected function buildJavascriptFile($path): string
+    /**
+     * Build the Mingle JavScript file.
+     *
+     */
+    protected function buildJavascriptFile(string $name, string $path): string
     {
+        $isVue = $this->argument('framework') === 'vue';
+
+        $basename = Str::afterLast($name, '/');
+
+        $mingleFrameworkImport = $isVue
+            ? '@mingle/mingleVue'
+            : '@mingle/mingleReact';
+
+        $componentFile = $isVue
+            ? $basename . '.vue'
+            : $basename . '.jsx';
+
         $replacements = [
-            '{{ $name }}' => $path,
+            '{{ $basename }}' => $basename,
             '{{ $path }}' => $path,
+            '{{ $componentFile }}' => $componentFile,
+            '{{ $mingleFrameworkImport }}' => $mingleFrameworkImport,
         ];
 
         $stub = str(
             $this->files->get(__DIR__ . '/../../resources/stubs/mingle.javascript.stub')
-        )->replace(
+        );
+
+        return $stub->replace(
             search: array_keys($replacements),
             replace: array_values($replacements)
         );
-
-        dd($stub);
     }
 
     /**
@@ -227,5 +229,23 @@ class MingleMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace): string
     {
         return $rootNamespace . '\Livewire';
+    }
+
+    /**
+     * Prompt for missing input arguments using the returned questions.
+     *
+     * @return array
+     */
+    protected function promptForMissingArgumentsUsing()
+    {
+        return [
+            'framework' => fn() => select(
+                label: 'Which JavaScript framework do you want to use?',
+                options: [
+                    'vue' => 'Vue',
+                    'react' => 'React',
+                ],
+            ),
+        ];
     }
 }
