@@ -21,7 +21,5 @@
                 Navigate the demo using the links above.
             </p>
         </div>
-
-        @livewire('Foo')
     </div>
 @endsection

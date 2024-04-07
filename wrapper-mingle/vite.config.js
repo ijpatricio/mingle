@@ -6,7 +6,6 @@ import path from 'path'
 export default defineConfig({
     resolve: {
         alias: {
-            // "@laravel-base-path": path.resolve(__dirname),
             "@mingle": path.resolve(__dirname, "/vendor/ijpatricio/mingle/resources/js"),
         },
     },
