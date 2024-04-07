@@ -45,7 +45,7 @@ class MingleMakeCommand extends GeneratorCommand
 
         $qualifiedClass = $this->qualifyClass($this->getNameInput());
 
-        $path = $this->getPath($qualifiedClass);
+        $classPath = $this->getPath($qualifiedClass);
 
         if ($this->canCreateClass() === false) {
             return false;
@@ -69,11 +69,11 @@ class MingleMakeCommand extends GeneratorCommand
             );
         }
 
-        $this->createMingleClassFile($qualifiedClass, $path);
+        $this->createMingleClassFile($qualifiedClass, $classPath, $mingleFilePath);
 
         $this->createMingleJavaScriptFiles($name, $mingleFilePath);
 
-        $this->outputSuccessInformation($path);
+        $this->outputSuccessInformation($classPath);
     }
 
     /**
@@ -138,14 +138,25 @@ class MingleMakeCommand extends GeneratorCommand
      * Create the mingle Livewire class.
      *
      */
-    protected function createMingleClassFile(string $name, string $path): void
+    protected function createMingleClassFile(string $name, string $classPath, string $mingleFilePath): void
     {
         // Next, we will generate the path to the location where this class' file should get
         // written. Then, we will build the class and make the proper replacements on the
         // stub files so that it gets the correctly formatted namespace and class name.
-        $this->makeDirectory($path);
+        $this->makeDirectory($classPath);
 
-        $this->files->put($path, $this->sortImports($this->buildClass($name)));
+        $baseContents = $this->sortImports($this->buildClass($name));
+
+        $replacements = [
+            '{{ $mingleFilePath }}' => $mingleFilePath,
+        ];
+
+        $contents = str($baseContents)->replace(
+            search: array_keys($replacements),
+            replace: array_values($replacements),
+        );
+
+        $this->files->put($classPath, $contents);
     }
 
     /**
@@ -193,12 +204,16 @@ class MingleMakeCommand extends GeneratorCommand
      */
     protected function generateNewComponentContents($framework, $path, $basename): string
     {
-
         return match ($framework) {
-            'vue' => $base->append($basename.'.vue'),
+
+            'vue' => str(
+                $this->files->get(__DIR__ . '/../../resources/stubs/mingle.vue-component.stub')
+            )->replace('{{ $basename }}', $basename),
+
             'react' => str(
                 $this->files->get(__DIR__ . '/../../resources/stubs/mingle.react-component.stub')
-            )->replace('{{ $basename }}', $basename)
+            )->replace('{{ $basename }}', $basename),
+
         };
     }
 

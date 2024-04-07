@@ -1,20 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 function {{ $basename }}({wire, ...props}) {
 
-    /*
-        const message = props.mingleData.message
+    const message = props.mingleData.message
 
-        console.log(message) // 'Message in a bottle 🍾'
+    console.log(message) // 'Message in a bottle 🍾'
 
-        useEffect(() => {
-            wire
-                .doubleIt(2)
-                .then(data => {
-                    console.log(data) // 4
-                })
+    wire.doubleIt(2)
+        .then(data => {
+            console.log(data) // 4
         })
-    */
 
     return (
         <div>

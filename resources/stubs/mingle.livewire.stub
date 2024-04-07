@@ -12,7 +12,7 @@ class {{ class }} extends Component implements HasMingles
 
     public function component(): string
     {
-        return 'resources/js/vue-counter/index.js';
+        return '{{ $mingleFilePath }}';
     }
 
     public function mingleData()
