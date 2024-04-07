@@ -1,0 +1,4 @@
+import mingle from '@mingle/mingleVue'
+import Counter from './Counter.vue'
+
+mingle('{{ $path }}', Counter)
