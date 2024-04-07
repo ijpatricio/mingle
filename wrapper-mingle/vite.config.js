@@ -20,8 +20,8 @@ export default defineConfig({
             ],
             refresh: [
                 ...refreshPaths,
-                'app/**/*.php',
-                'resources/**/*.php',
+                'app/**',
+                'resources/js/**',
             ],
         }),
         vue({

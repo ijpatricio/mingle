@@ -23,8 +23,8 @@ class MingleMakeCommand extends GeneratorCommand
      *
      */
     protected $signature = 'make:mingle
-        {name : The Mingle class name}
         {framework : The JavaScript framework to be used (react,vue)}
+        {name : The Mingle class name}
         {--jsfile= : The file path to the JS component, relative to `resources/js`}
         {--force : Create the class even if the mingle already exists}
     ';
@@ -71,7 +71,7 @@ class MingleMakeCommand extends GeneratorCommand
 
         $this->createMingleClassFile($qualifiedClass, $path);
 
-        $this->createMingleJavaScriptFile($name, $mingleFilePath);
+        $this->createMingleJavaScriptFiles($name, $mingleFilePath);
 
         $this->outputSuccessInformation($path);
     }
@@ -152,43 +152,77 @@ class MingleMakeCommand extends GeneratorCommand
      * Create the mingle Javascript file.
      *
      */
-    protected function createMingleJavaScriptFile(string $name, string $path): void
+    protected function createMingleJavaScriptFiles(string $mingleName, string $path): void
     {
+        $basename = Str::afterLast($mingleName, '/');
+
+        $framework = $this->argument('framework');
+
         $this->makeDirectory($path);
 
+        // Create the JavaScript file for Mingle registration
         $this->files->put(
             path: $path,
-            contents: $this->buildJavascriptFile($name, $path)
+            contents: $this->buildJavascriptFile($basename, $path, $framework)
         );
+
+        // Create the JavaScript file for the new component
+        $this->files->put(
+            path: $this->generateNewComponentPath($framework, $path, $basename),
+            contents: $this->generateNewComponentContents($framework, $path, $basename),
+        );
+    }
+
+    /**
+     * Generate the path to the new component file.
+     *
+     */
+    protected function generateNewComponentPath($framework, $path, $basename): string
+    {
+        $base = str($path)->replace($basename.'.js', '');
+
+        return match ($framework) {
+            'vue' => $base->append($basename.'.vue'),
+            'react' => $base->append($basename.'.jsx'),
+        };
+    }
+
+    /**
+     * Generate the contents for the new component file.
+     *
+     */
+    protected function generateNewComponentContents($framework, $path, $basename): string
+    {
+
+        return match ($framework) {
+            'vue' => $base->append($basename.'.vue'),
+            'react' => str(
+                $this->files->get(__DIR__ . '/../../resources/stubs/mingle.react-component.stub')
+            )->replace('{{ $basename }}', $basename)
+        };
     }
 
     /**
      * Build the Mingle JavScript file.
      *
      */
-    protected function buildJavascriptFile(string $name, string $path): string
+    protected function buildJavascriptFile(string $basename, string $path, string $framework): string
     {
-        $isVue = $this->argument('framework') === 'vue';
-
-        $basename = Str::afterLast($name, '/');
-
-        $mingleFrameworkImport = $isVue
-            ? '@mingle/mingleVue'
-            : '@mingle/mingleReact';
-
-        $componentFile = $isVue
-            ? $basename . '.vue'
-            : $basename . '.jsx';
-
         $replacements = [
             '{{ $basename }}' => $basename,
             '{{ $path }}' => $path,
-            '{{ $componentFile }}' => $componentFile,
-            '{{ $mingleFrameworkImport }}' => $mingleFrameworkImport,
+            '{{ $componentFile }}' => match ($framework) {
+                'vue' => $basename . '.vue',
+                'react' => $basename . '.jsx',
+            },
+            '{{ $mingleFrameworkImport }}' => match ($framework) {
+                'vue' => '@mingle/mingleVue',
+                'react' => '@mingle/mingleReact',
+            },
         ];
 
         $stub = str(
-            $this->files->get(__DIR__ . '/../../resources/stubs/mingle.javascript.stub')
+            $this->files->get(__DIR__ . '/../../resources/stubs/mingle.register.stub')
         );
 
         return $stub->replace(
