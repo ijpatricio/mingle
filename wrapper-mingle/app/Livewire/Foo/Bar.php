@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Foo;
 
 use Ijpatricio\Mingle\HasMingles;
 use Ijpatricio\Mingle\InteractsWithMingles;
 use Livewire\Component;
 
-class ReactCounter extends Component implements HasMingles
+class Bar extends Component implements HasMingles
 {
     use InteractsWithMingles;
 
     public function component(): string
     {
-        return 'resources/js/react-counter/index.js';
+        return 'resources/js/vue-counter/index.js';
     }
 
     public function mingleData()

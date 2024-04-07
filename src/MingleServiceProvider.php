@@ -4,7 +4,7 @@ namespace Ijpatricio\Mingle;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Ijpatricio\Mingle\Commands\MingleCommand;
+use Ijpatricio\Mingle\Commands\MingleMakeCommand;
 
 class MingleServiceProvider extends PackageServiceProvider
 {
@@ -19,6 +19,6 @@ class MingleServiceProvider extends PackageServiceProvider
             ->name('mingle')
             ->hasConfigFile()
             ->hasViews()
-            ->hasCommand(MingleCommand::class);
+            ->hasCommand(MingleMakeCommand::class);
     }
 }
