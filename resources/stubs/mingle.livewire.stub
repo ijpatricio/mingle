@@ -2,8 +2,8 @@
 
 namespace {{ namespace }};
 
-use Ijpatricio\Mingle\HasMingles;
-use Ijpatricio\Mingle\InteractsWithMingles;
+use Ijpatricio\Mingle\Contracts\HasMingles;
+use Ijpatricio\Mingle\Concerns\InteractsWithMingles;
 use Livewire\Component;
 
 class {{ class }} extends Component implements HasMingles

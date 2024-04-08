@@ -1,6 +1,6 @@
 <?php
 
-namespace Ijpatricio\Mingle;
+namespace Ijpatricio\Mingle\Contracts;
 
 interface HasMingles
 {
