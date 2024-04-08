@@ -1,17 +1,9 @@
-@php
-    $stackName = config('mingle.stack');
-@endphp
-
-@if (View::hasSection($stackName))
-    @pushonce($stackName)
-        @vite($this->component())
-    @endpushonce
-@else
+@pushonce(config('mingle.stack'))
     @vite($this->component())
-@endif
+@endpushonce
 
 <div
-    x-init="
+        x-init="
         window.Mingle.Elements['{{ $this->component() }}']
             .boot(
                 '{{ $this->mingleId }}',
@@ -21,9 +13,9 @@
 >
     <div id="{{ $this->mingleId }}-container" wire:ignore x-ignore>
         <div
-            id="{{ $this->mingleId }}"
-            data-mingle-boot="{{ json_encode($this->mingleBoot(collect())) }}"
-            data-mingle-data="{{ json_encode($this->mingleData(collect())) }}"
+                id="{{ $this->mingleId }}"
+                data-mingle-boot="{{ json_encode($this->mingleBoot(collect())) }}"
+                data-mingle-data="{{ json_encode($this->mingleData(collect())) }}"
         ></div>
     </div>
 </div>
