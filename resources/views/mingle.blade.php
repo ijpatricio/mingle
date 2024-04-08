@@ -1,6 +1,14 @@
-@pushonce(config('mingle.stack'))
+@php
+    $stackName = config('mingle.stack');
+@endphp
+
+@if (View::hasSection($stackName))
+    @pushonce($stackName)
+        @vite($this->component())
+    @endpushonce
+@else
     @vite($this->component())
-@endpushonce
+@endif
 
 <div
     x-init="

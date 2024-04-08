@@ -54,7 +54,7 @@ class MingleMakeCommand extends GeneratorCommand
         $customOption = 'Other - customize';
 
         $mingleFilePath = select(
-            label: 'What is the destination JavaScript file?',
+            label: 'What should be the JavaScript file called?',
             options: $this
                 ->guessJavaScriptFilePath($name)
                 ->push($customOption)
