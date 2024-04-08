@@ -51,6 +51,21 @@ class MingleMakeCommand extends GeneratorCommand
             return false;
         }
 
+        if($jsfile = $this->option('jsfile')) {
+            $mingleFilePath = $jsfile;
+        } else {
+            $mingleFilePath = $this->askForJavaScriptFilePath($name);
+        }
+
+        $this->createMingleClassFile($qualifiedClass, $classPath, $mingleFilePath);
+
+        $this->createMingleJavaScriptFiles($name, $mingleFilePath);
+
+        $this->outputSuccessInformation($classPath);
+    }
+
+    public function askForJavaScriptFilePath(string $name): string
+    {
         $customOption = 'Other - customize';
 
         $mingleFilePath = select(
@@ -69,11 +84,7 @@ class MingleMakeCommand extends GeneratorCommand
             );
         }
 
-        $this->createMingleClassFile($qualifiedClass, $classPath, $mingleFilePath);
-
-        $this->createMingleJavaScriptFiles($name, $mingleFilePath);
-
-        $this->outputSuccessInformation($classPath);
+        return $mingleFilePath;
     }
 
     /**
