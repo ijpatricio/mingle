@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Inspired on https://github.com/adriancooney/Taskfile
+#
+# Install an alias, to be able to simply execute `run`
+# echo 'alias run=./scripts/run' >> ~/.aliases
+#
+# Define Docker Compose command prefix...
+set -e
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+function default {
+    help
+}
+
+function sail {
+    cd wrapper-mingle ; ./vendor/bin/sail $@
+}
+
+function dev:server {
+    sail up
+}
+
+function dev:npm {
+    sail npm run dev
+}
+
+TIMEFORMAT="Task completed in %3lR"
+time "${@:-default}"
