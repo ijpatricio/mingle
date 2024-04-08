@@ -2,8 +2,9 @@
 
 namespace Ijpatricio\Mingle\Commands;
 
+use Ijpatricio\Mingle\Actions\AddDemoViewAndRoute;
 use Ijpatricio\Mingle\Actions\ChangeViteConfig;
-use Ijpatricio\Mingle\Actions\ChangeWelcomeBlade;
+use Ijpatricio\Mingle\Actions\ChangeGuestLayout;
 use Illuminate\Console\Command;
 
 class MingleInstallerCommand extends Command
@@ -28,7 +29,8 @@ class MingleInstallerCommand extends Command
     public function handle()
     {
         $results = collect([
-            app(ChangeWelcomeBlade::class)(),
+            app(ChangeGuestLayout::class)(),
+            app(AddDemoViewAndRoute::class)(),
             app(ChangeViteConfig::class)(),
         ]);
 
