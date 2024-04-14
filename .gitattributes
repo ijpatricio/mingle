@@ -18,4 +18,5 @@
 /UPGRADING.md       export-ignore
 /phpstan.neon.dist  export-ignore
 /phpstan-baseline.neon  export-ignore
+/logo                export-ignore
 /wrapper-mingle     export-ignore
