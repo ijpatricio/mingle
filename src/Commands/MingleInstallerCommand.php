@@ -39,6 +39,6 @@ class MingleInstallerCommand extends Command
             return;
         }
 
-        $this->info('File `welcome.blade.php` blade changed.');
+        $this->info('Installed finished. Happy Mingling!');
     }
 }
