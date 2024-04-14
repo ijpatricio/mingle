@@ -1,17 +1,4 @@
-<div class="logo">
-
-![logo-cover.png](docs/logo-cover.png)
-
-</div>
-
-<style>
-.logo img {
-    border-radius: 12px;
-    margin: 20px;
-    box-shadow: 5px 5px 20px rgb(45 114 253);
-}
-</style>
-
+<img src="./docs/logo-cover.png" style="border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
 
 # MingleJS
 
