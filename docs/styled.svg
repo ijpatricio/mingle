@@ -1,0 +1,19 @@
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+<foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+        <style>
+            .logo img {
+                border-radius: 12px;
+                margin: 20px;
+                box-shadow: 5px 5px 20px rgb(45 114 253);
+            }
+        </style>
+
+        <div class="container">
+            <p align="center">
+                <img src="docs/logo-cover.png" />
+            </p>
+        </div>
+    </div>
+</foreignObject>
+</svg>
