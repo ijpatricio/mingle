@@ -1,5 +1,3 @@
-<img src="./docs/styled.svg" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" alt="Logo" />
-
 <div style="width: 100%;">
   <img src="docs/styled.svg" style="width: 100%;" alt="Click to see the source">
 </div>
