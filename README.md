@@ -1,4 +1,4 @@
-<img src="./docs/logo-cover.png" style="border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
+<img src="./docs/logo-cover.png" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
 
 # MingleJS
 
