@@ -1,5 +1,7 @@
 <div class="logo">
+
 ![logo-cover.png](docs/logo-cover.png)
+
 </div>
 
 <style>
