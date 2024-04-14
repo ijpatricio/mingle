@@ -27,9 +27,9 @@ But the reality is, for the most part, you can use the convenient way of making 
 
 ![Browser and server showing how they interact winthin a Mingle](docs/img_2.png)
 
-## Documentation
+## Getting started & Documentation
 
-You'll find the documentation on [WIP](https://WIP).
+You'll find how to get started and the documentation [here](https://WIP).
 
 TODO: Add documentation link 
 
