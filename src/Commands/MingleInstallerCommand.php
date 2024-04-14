@@ -14,7 +14,7 @@ class MingleInstallerCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'mingle:install';
+    protected $signature = 'mingle:install {--with-demo}';
 
     /**
      * The console command description.

@@ -1,4 +1,18 @@
-# This is my package mingle
+<div class="logo">
+![logo-cover.png](docs/logo-cover.png)
+</div>
+
+<style>
+.logo img {
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 5px 5px 20px rgb(45 114 253);
+}
+</style>
+
+
+# MingleJS
+
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ijpatricio/mingle.svg?style=flat-square)](https://packagist.org/packages/ijpatricio/mingle)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ijpatricio/mingle/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ijpatricio/mingle/actions?query=workflow%3Arun-tests+branch%3Amain)
