@@ -8,36 +8,33 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ijpatricio/mingle/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ijpatricio/mingle/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/ijpatricio/mingle.svg?style=flat-square)](https://packagist.org/packages/ijpatricio/mingle)
 
-This is a way of using Vue/React components in a Laravel Livewire app.
 
-It's very different from an SPA or Inertia, because we can use Livewire, Alpine, Vue and React, in the same app.
 
-This is very convenient because, for example:
-- we want to use a couple of Vue components on an individual marketing page
-- on another one we want to use React because of a specific component
-- also we want to use Livewire on another
+As you may already know, Livewire is a full-stack framework for Laravel that allows you to build dynamic interfaces using server-side code.
+MingleJS allows you to use React/Vue components in your Livewire application, so you can use the best of both worlds.
 
-Well now you can.
+## How is it working?
 
-Most likely you will pair Livewire with just one taste of JS framework, but you can mix and match as you wish.
+MingleJS renders a `div` on the server-side, and then mounts the React/Vue component on the client-side. Each JS component is rendered by a Livewire compoenent, so you get an island of interactivity in your Livewire application, with the JS of your taste.
 
-## Installation
+![Browser with stack of divs and a Mingle](docs/img_1.png)
 
-#### WIP WIP 
+## Some included nicety features
 
-I'm currently deploying this package to packagist, so that's why it's public right now. Finishing this and docs in a couple of days. Meaning: it works, but no docs... yet. Until April 10 or much before, hopefully!!
+In the backend component, you can pass data that the component will have access to on the frontend.
 
-You can install the package via composer:
+You can choose to keep using Ajax client - Axios/Fetch/etc.
+But the reality is, for the most part, you can use the convenient way of making server actions, which is Livewire. You get to make server requests just by `$wire.addTodo(todo)`. Find below a simple diagram of how MingleJS works in a page.
 
-```bash
-composer require ijpatricio/mingle
-```
+![Browser and server showing how they interact winthin a Mingle](docs/img_2.png)
 
-You can publish the config file with:
+## Documentation
 
-```bash
-php artisan vendor:publish --tag="mingle-config"
-```
+You'll find the documentation on [WIP](https://WIP).
+
+TODO: Add documentation link 
+
+For any questions and suggestions regarding MingleJS, feel free to [create an issue on GitHub](https://github.com/spatie/laravel-medialibrary/issues).
 
 ## Changelog
 
