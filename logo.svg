@@ -3,10 +3,7 @@
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
                 .container img {
-                display: flex;
                 width: 100%;
-                height: 300px;
-                background-color: black;
                 color: white;
                 }
             </style>
