@@ -6,6 +6,7 @@ use Ijpatricio\Mingle\Actions\AddDemoViewAndRoute;
 use Ijpatricio\Mingle\Actions\ChangeViteConfig;
 use Ijpatricio\Mingle\Actions\ChangeGuestLayout;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class MingleInstallerCommand extends Command
 {
@@ -37,6 +38,12 @@ class MingleInstallerCommand extends Command
             $results->push(
                 app(AddDemoViewAndRoute::class)(),
             );
+            Artisan::call('make:mingle', [
+                'framework' => 'react',
+                'name' => 'Demo',
+                '--jsfile' => 'resources/js/ChatApp.js',
+                '--force' => true,
+            ]);
         }
 
         if ($results->every(fn($result) => $result === false)) {
