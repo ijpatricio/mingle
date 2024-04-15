@@ -31,8 +31,6 @@ But the reality is, for the most part, you can use the convenient way of making 
 
 You'll find how to get started and the documentation [here](https://WIP).
 
-TODO: Add documentation link 
-
 For any questions and suggestions regarding MingleJS, feel free to [create an issue on GitHub](https://github.com/spatie/laravel-medialibrary/issues).
 
 ## Changelog
