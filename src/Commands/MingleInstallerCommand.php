@@ -30,9 +30,14 @@ class MingleInstallerCommand extends Command
     {
         $results = collect([
             app(ChangeGuestLayout::class)(),
-            app(AddDemoViewAndRoute::class)(),
             app(ChangeViteConfig::class)(),
         ]);
+
+        if ($this->option('with-demo')) {
+            $results->push(
+                app(AddDemoViewAndRoute::class)(),
+            );
+        }
 
         if ($results->every(fn($result) => $result === false)) {
             $this->warn('Some files were not changed. Nothing to do.');
