@@ -29,7 +29,7 @@ But the reality is, for the most part, you can use the convenient way of making 
 
 ## Getting started & Documentation
 
-You'll find how to get started and the documentation [here](https://WIP).
+You'll find how to get started and the documentation [here](https://minglejs.unitedbycode.com).
 
 For any questions and suggestions regarding MingleJS, feel free to [create an issue on GitHub](https://github.com/ijpatricio/mingle/issues).
 
