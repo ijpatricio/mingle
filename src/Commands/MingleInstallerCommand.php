@@ -4,7 +4,7 @@ namespace Ijpatricio\Mingle\Commands;
 
 use Ijpatricio\Mingle\Actions\AddDemoViewAndRoute;
 use Ijpatricio\Mingle\Actions\ChangeViteConfig;
-use Ijpatricio\Mingle\Actions\ChangeGuestLayout;
+use Ijpatricio\Mingle\Actions\ChangeLayoutFile;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -30,7 +30,8 @@ class MingleInstallerCommand extends Command
     public function handle()
     {
         $results = collect([
-            app(ChangeGuestLayout::class)(),
+            app(ChangeLayoutFile::class, ['filePath' => 'resources/views/layouts/guest.blade.php',])(),
+            app(ChangeLayoutFile::class, ['filePath' => 'resources/views/layouts/app.blade.php',])(),
             app(ChangeViteConfig::class)(),
         ]);
 

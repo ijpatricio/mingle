@@ -3,22 +3,29 @@
 namespace Ijpatricio\Mingle\Actions;
 
 use Ijpatricio\Mingle\Replacement;
+use Illuminate\Support\Facades\File;
 
 class ChangeViteConfig
 {
+    private string $filePath;
+
     private ReplaceContents $replace;
 
     public function __construct()
     {
-        $file = base_path('vite.config.js');
+        $this->filePath = base_path('vite.config.js');
 
         $this->replace = app(ReplaceContents::class, [
-            'file' => $file
+            'file' => $this->filePath
         ]);
     }
 
     public function __invoke(): bool
     {
+        if (! File::exists($this->filePath)) {
+            return false;
+        }
+
         // Add Import Statements
         //
         $this->replace->addReplacement(Replacement::make([
