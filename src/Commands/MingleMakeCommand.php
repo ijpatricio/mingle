@@ -48,7 +48,8 @@ class MingleMakeCommand extends GeneratorCommand
         $classPath = $this->getPath($qualifiedClass);
 
         if ($this->canCreateClass() === false) {
-            return false;
+            // Error code
+            return 1;
         }
 
         if($jsfile = $this->option('jsfile')) {
@@ -201,11 +202,18 @@ class MingleMakeCommand extends GeneratorCommand
      */
     protected function generateNewComponentPath($framework, $path, $basename): string
     {
-        $base = str($path)->replace($basename.'.js', '');
+        $path = str($path);
+
+        if($path->endsWith('index.js')) {
+            return match ($framework) {
+                'vue' => $path->replace('index.js', "$basename.vue"),
+                'react' => $path->replace('index.js', "$basename.jsx"),
+            };
+        }
 
         return match ($framework) {
-            'vue' => $base->append($basename.'.vue'),
-            'react' => $base->append($basename.'.jsx'),
+            'vue' => $path->replace('.js', '.vue'),
+            'react' => $path->replace('.js', '.jsx'),
         };
     }
 
