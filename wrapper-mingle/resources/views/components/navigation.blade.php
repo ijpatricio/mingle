@@ -7,6 +7,7 @@
         'Livewire' => 'demo-with-livewire',
         'React' => 'demo-with-react',
         'Vue' => 'demo-with-vue',
+        'All together' => 'demo-with-all',
     ];
 @endphp
 

@@ -1,6 +1,6 @@
-@pushonce(config('mingle.stack'))
+@push(config('mingle.stack'))
     @vite($this->component())
-@endpushonce
+@endpush
 
 <div
         x-init="
