@@ -14,7 +14,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/js/react-counter/index.jsx',
+                'resources/js/react-counter/index.js',
                 'resources/js/vue-counter/index.js',
             ],
             refresh: [
