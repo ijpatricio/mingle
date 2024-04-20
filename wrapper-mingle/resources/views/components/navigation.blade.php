@@ -11,7 +11,7 @@
     ];
 @endphp
 
-<ul class="flex flex-wrap gap-4 items">
+<ul class="flex flex-wrap justify-center gap-4 items">
     @foreach($pageNav as $label => $routeName)
         <li>
             <a
