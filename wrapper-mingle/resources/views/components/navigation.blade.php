@@ -7,7 +7,9 @@
         'Livewire' => 'demo-with-livewire',
         'React' => 'demo-with-react',
         'Vue' => 'demo-with-vue',
-        'All together' => 'demo-with-all',
+        'All combined' => 'demo-with-all',
+        '↗ Docs' => 'https://minglejs.unitedbycode.com',
+        '↗ Demo source code' => 'https://github.com/ijpatricio/minglejs-demo',
     ];
 @endphp
 
@@ -19,10 +21,18 @@
                     $regularClasses,
                     $activeClasses => request()->routeIs($routeName),
                 ])
-                href="{{ route($routeName) }}"
+
+                @if(Str::startsWith($routeName, 'http'))
+                    href="{{ $routeName }}"
+                    target="_blank"
+                @else
+                    href="{{ route($routeName) }}"
+                @endif
             >
                 {{ $label }}
             </a>
         </li>
     @endforeach
 </ul>
+
+
