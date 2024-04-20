@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "ijpatricio/mingle": "*",
+        "ijpatricio/mingle": "@dev",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

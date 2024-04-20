@@ -18,6 +18,17 @@ function default {
     help
 }
 
+function prepare-repo {
+    rm -rf wrapper-mingle/vendor
+    cd wrapper-mingle
+    docker run --rm \
+        -v $PWD:/app \
+        -v $PWD:/app/packages/mingle \
+        -w /app \
+        composer install --ignore-platform-reqs --no-scripts
+    cd -
+}
+
 function sail {
     cd wrapper-mingle ; ./vendor/bin/sail $@
 }
