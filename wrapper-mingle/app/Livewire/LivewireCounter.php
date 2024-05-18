@@ -6,7 +6,10 @@ use Livewire\Component;
 
 class LivewireCounter extends Component
 {
-    public int $count = 1;
+    /**
+     * Someone reached the integer limit, so, let's use a float.
+     */
+    public float $count = 1;
 
     public string $message;
 
