@@ -5,6 +5,7 @@ namespace {{ namespace }};
 use Ijpatricio\Mingle\Contracts\HasMingles;
 use Ijpatricio\Mingle\Concerns\InteractsWithMingles;
 use Livewire\Component;
+use Illuminate\Support\Collection;
 
 class {{ class }} extends Component implements HasMingles
 {
@@ -15,11 +16,11 @@ class {{ class }} extends Component implements HasMingles
         return '{{ $mingleFilePath }}';
     }
 
-    public function mingleData()
+    public function mingleData(Collection $data): Collection
     {
-        return [
+        return collect([
             'message' => 'Message in a bottle 🍾',
-        ];
+        ]);
     }
 
     public function doubleIt($amount)
