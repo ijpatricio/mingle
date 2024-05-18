@@ -2,25 +2,17 @@
 
 namespace Ijpatricio\Mingle\Concerns;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 trait InteractsWithMingles
 {
     public $mingleId;
 
-    public function mingleBoot(Collection $data): Collection
+    public function mingleData(): array
     {
-        //
-
-        return $data;
-    }
-
-    public function mingleData(Collection $data): Collection
-    {
-        //
-
-        return $data;
+        return [
+            //
+        ];
     }
 
     public function mountInteractsWithMingles()

@@ -15,7 +15,7 @@ class VueCounter extends Component implements HasMingles
         return 'resources/js/vue-counter/index.js';
     }
 
-    public function mingleData()
+    public function mingleData(): array
     {
         return [
             'message' => 'Message in a bottle 🍾',
