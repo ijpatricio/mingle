@@ -37,10 +37,9 @@ jobs:
           pwd
           ls -alh
           rm -rf .git
-          mv wrapper-mingle /app
-          mkdir -p /app/packages
-          cd .. ; mv mingle /app/packages/mingle
-          cd /app
+          mv wrapper-mingle ../app
+          cd .. ; mkdir app/packages ; mv mingle app/packages/mingle
+          cd app
           ls -alh
           cd packages/mingle
           ls -alh
