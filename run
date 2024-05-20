@@ -44,5 +44,6 @@ function dev:npm {
 function build:prod {
 
 }
+
 TIMEFORMAT="Task completed in %3lR"
 time "${@:-default}"
