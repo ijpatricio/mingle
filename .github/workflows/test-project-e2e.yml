@@ -1,8 +1,8 @@
 name: Create and Test Project
 
-on:
-  workflow_dispatch:
-  push:
+#on:
+#  workflow_dispatch:
+#  push:
 #    branches: [ "main" ]
 #  pull_request:
 #    branches: [ "main" ]

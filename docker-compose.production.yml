@@ -1,0 +1,23 @@
+services:
+  mingle-demo:
+    image: "mingle-demo:${TAG:-latest}"
+    restart: always
+    hostname: mingle-demo
+    volumes:
+      - ./.env:/var/www/html/.env
+      - ./storage/app:/var/www/html/storage/app
+      - ./storage/logs:/var/www/html/storage/logs
+    environment:
+      - PHP_OPCACHE_ENABLE=1
+      - AUTORUN_ENABLED=true
+    networks: [web]
+    build:
+      context: .
+      dockerfile: docker/production-ssu/runtimes/webapp/Dockerfile
+      args:
+        USER_ID: 1000
+        GROUP_ID: 1000
+
+networks:
+  web:
+    external: true

@@ -1,0 +1,79 @@
+name: Deploy Mingle-General Demo
+
+on:
+  push:
+#  workflow_dispatch:
+#    inputs:
+#      commit-message:
+#        description: 'Commit message'
+#        required: false
+
+env:
+  space: 'mingle-demo'
+  image: 'mingle-demo'
+  registry: ghcr.io
+  username: ijpatricio
+  default-commit-message: 'Deploying Mingle-General Demo'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare SSH connections for deployment
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_PVT_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p 22 ${{ secrets.DEPLOY_SERVER }} >> ~/.ssh/known_hosts
+
+      - name: Set up environment
+        run: |
+          echo "SHA_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
+
+      - name: Build and push the Docker image
+        run: |
+          ls -alh
+          exit 1
+          cd bench/mingle-general
+          docker build . --file production.Dockerfile --tag ${{ env.image }}:$SHA_SHORT
+
+          echo "Pushing image to the server..."
+          docker save ${{ env.image }}:$SHA_SHORT | ssh \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} \
+            'docker load'
+
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+            mkdir -p ~/spaces/${{ env.space }}
+            cd ~/spaces/${{ env.space }}
+            mkdir -p storage/app storage/logs
+          '''
+
+          scp docker-compose.prod.yml \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }}:spaces/${{ env.space }}/docker-compose.yml
+
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+            docker tag ${{ env.image }}:${{ env.SHA_SHORT }} ${{ env.image }}:latest
+            cd ~/spaces/${{ env.space }}
+            docker compose up -d --remove-orphans
+          '''
+
+#      - name: Create and Test Project
+#        run: |
+#          cd bench/mingle-general
+#          rm .env
+#          cp -f ../../stubs/mingle-general/README.md .
+
+#      - name: Pushes to another repository
+#        uses: cpina/github-action-push-to-another-repository@main
+#        env:
+#          API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+#        with:
+#          source-directory: 'bench/mingle-general'
+#          destination-github-username: 'ijpatricio'
+#          destination-repository-name: 'minglejs-demo'
+#          user-name: Patricio
+#          user-email: ijpatricio@gmail.com
+#          target-branch: main
+#          commit-message: ${{ inputs.commit-message || env.default-commit-message }}
