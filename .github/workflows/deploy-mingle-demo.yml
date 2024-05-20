@@ -36,7 +36,13 @@ jobs:
         run: |
           pwd
           ls -alh
-          mv !(wrapper-mingle) wrapper-mingle/
+          rm -rf .git
+          mv wrapper-mingle /app
+          mkdir -p /app/packages
+          cd .. ; mv mingle /app/packages/mingle
+          cd /app
+          ls -alh
+          cd packages/mingle
           ls -alh
           exit 1
           cd bench/mingle-general
