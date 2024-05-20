@@ -35,6 +35,7 @@ jobs:
       - name: Build and push the Docker image
         run: |
           ls -alh
+          pwd
           exit 1
           cd bench/mingle-general
           docker build . --file production.Dockerfile --tag ${{ env.image }}:$SHA_SHORT

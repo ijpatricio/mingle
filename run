@@ -41,5 +41,8 @@ function dev:npm {
     sail npm run dev
 }
 
+function build:prod {
+
+}
 TIMEFORMAT="Task completed in %3lR"
 time "${@:-default}"
