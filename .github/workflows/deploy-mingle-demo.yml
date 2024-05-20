@@ -11,8 +11,6 @@ on:
 env:
   space: 'mingle-demo'
   image: 'mingle-demo'
-  registry: ghcr.io
-  username: ijpatricio
   default-commit-message: 'Deploying Mingle-General Demo'
 
 jobs:
@@ -34,18 +32,7 @@ jobs:
 
       - name: Build and push the Docker image
         run: |
-          pwd
-          ls -alh
-          rm -rf .git wrapper-mingle/packages
-          mv wrapper-mingle ../app
-          cd .. ; mkdir app/packages ; mv mingle app/packages/mingle
-          cd app
-          ls -alh
-          cd packages/mingle
-          ls -alh
-          exit 1
-          cd bench/mingle-general
-          docker build . --file production.Dockerfile --tag ${{ env.image }}:$SHA_SHORT
+          docker build . --file docker/production/Dockerfile --tag ${{ env.image }}:$SHA_SHORT
 
           echo "Pushing image to the server..."
           docker save ${{ env.image }}:$SHA_SHORT | ssh \

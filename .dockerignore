@@ -1,0 +1,9 @@
+.idea
+.github
+.git
+node_modules
+vendor
+docker
+docs
+playwright
+tests
