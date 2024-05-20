@@ -47,5 +47,3 @@ RUN npm ci ; npm run build
 FROM starting_point
 
 COPY --from=build_frontend --chown=www-data:www-data /app /var/www/html
-
-ENTRYPOINT ["/usr/bin/bash"]
