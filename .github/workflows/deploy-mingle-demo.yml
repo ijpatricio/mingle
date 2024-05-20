@@ -36,7 +36,7 @@ jobs:
         run: |
           pwd
           ls -alh
-          rm -rf .git packages
+          rm -rf .git wrapper-mingle/packages
           mv wrapper-mingle ../app
           cd .. ; mkdir app/packages ; mv mingle app/packages/mingle
           cd app
