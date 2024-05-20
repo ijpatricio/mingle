@@ -11,12 +11,6 @@ services:
       - PHP_OPCACHE_ENABLE=1
       - AUTORUN_ENABLED=true
     networks: [web]
-    build:
-      context: .
-      dockerfile: docker/production-ssu/runtimes/webapp/Dockerfile
-      args:
-        USER_ID: 1000
-        GROUP_ID: 1000
 
 networks:
   web:
