@@ -45,7 +45,7 @@ jobs:
             mkdir -p storage/app storage/logs
           '''
 
-          scp docker-compose.prod.yml \
+          scp docker/production/docker-compose.production.yml \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }}:spaces/${{ env.space }}/docker-compose.yml
 
           ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
