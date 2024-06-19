@@ -35,6 +35,8 @@ const createComponent = (mingleId, wireId, component) => {
     const app = createApp(component, props)
 
     app.mount(el)
+
+    return app;
 }
 
 const registerVueMingle = (name, component) => {
