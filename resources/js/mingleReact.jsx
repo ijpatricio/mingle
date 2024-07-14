@@ -1,7 +1,7 @@
 import React from 'react'
 import {createRoot} from 'react-dom/client'
 
-const createComponent = (mingleId, wireId, Component) => {
+const createComponent = (mingleId, wireId, Component, options = {}) => {
 
     const
         el = document.getElementById(mingleId),
