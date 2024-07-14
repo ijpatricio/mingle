@@ -37,6 +37,12 @@ const createComponent = (mingleId, wireId, component, options = { autoMount: tru
     if (options.autoMount) {
         app.mount(el)
     }
+
+    return {
+        app,
+        node: el,
+        mingleData,
+    }
 }
 
 const registerVueMingle = (name, component) => {
