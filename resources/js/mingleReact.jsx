@@ -15,7 +15,15 @@ const createComponent = (mingleId, wireId, Component) => {
 
     const root = createRoot(el)
 
-    root.render(<Component wire={wire} wireId={wireId} mingleData={JSON.parse(el.dataset.mingleData)} />)
+    let mingleData = JSON.parse(el.dataset.mingleData);
+
+    root.render(<Component wire={wire} wireId={wireId} mingleData={mingleData} />)
+
+    return {
+        root,
+        node: el,
+        mingleData
+    }
 }
 
 const registerReactMingle = (name, component) => {
