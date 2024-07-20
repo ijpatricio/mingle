@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/ijpatricio/mingle/raw/main/docs/logo-cover.png" alt="MingleJS Logo" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
+<img src="https://github.com/ijpatricio/mingle/raw/main/art/logo-cover.png" alt="MingleJS Logo" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
 </p>
 
 # MingleJS Demo
