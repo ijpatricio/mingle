@@ -19,9 +19,9 @@ jobs:
 
       - name: Set up webserver
         run: |
-          run prepare:repo
-          run prepare:container
-          run dev:server
+          ./run prepare:repo
+          ./run prepare:container
+          ./run dev:server
 
       - name: Create E2E and Test Project
         if: ${{ false }}
