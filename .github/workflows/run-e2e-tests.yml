@@ -19,7 +19,6 @@ jobs:
 
       - name: Set up webserver
         run: |
-          cd wrapper-mingle
           run prepare:repo
           run prepare:container
           run dev:server
