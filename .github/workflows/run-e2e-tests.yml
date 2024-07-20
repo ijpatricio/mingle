@@ -17,18 +17,17 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Set up webserver
+      - name: Set up webserver and Test Project
         run: |
           ./run prepare:repo
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate
           ./run dev:server
-
-      - name: Create E2E and Test Project
-        run: |
           npm ci
+          npm run build
           npx playwright install --with-deps
+          # Build JS
           # Wait for the webserver to be ready
           curl http://localhost:8080
           npx wait-on http://localhost:8080 -t 15s
