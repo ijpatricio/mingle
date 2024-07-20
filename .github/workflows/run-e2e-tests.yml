@@ -22,7 +22,7 @@ jobs:
           ./run prepare:repo
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
-          docker compose run --rm webapp php artisan migrate --seed
+          docker compose run --rm webapp php artisan migrate
           ./run dev:server
 
       - name: Create E2E and Test Project
