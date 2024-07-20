@@ -29,15 +29,23 @@ function prepare-repo {
     cd -
 }
 
-function sail {
-    cd wrapper-mingle ; ./vendor/bin/sail $@
+function setIDS {
+    export USER_ID=$(id -u)
+    export GROUP_ID=$(id -g)
+}
+
+function dev:container {
+    setIDS
+    docker compose up -d
 }
 
 function dev:server {
-    sail up
+    setIDS
+    docker compose up -d --remove-orphans --force-recreate
 }
 
 function dev:npm {
+    setIDS
     sail npm run dev
 }
 

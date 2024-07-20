@@ -73,7 +73,7 @@ module.exports = defineConfig({
 
     /* Run your local dev server before starting the tests */
     webServer: {
-        command: 'npm run start',
+        command: 'docker compose up -d',
         url: projectUrl,
         reuseExistingServer: !process.env.CI,
     },

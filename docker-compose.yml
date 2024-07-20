@@ -1,22 +1,17 @@
 services:
-    laravel.test:
+      webapp:
         build:
-            context: ./wrapper-mingle/vendor/laravel/sail/runtimes/8.3
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
-        image: sail-8.3/app
+          context: .
+          dockerfile: docker/dev/runtimes/php/Dockerfile
+          args:
+            USER_ID: $USER_ID
+            GROUP_ID: $GROUP_ID
+        image: minglejs-wrapper
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '${APP_PORT:-80}:80'
+            - '${APP_PORT:-8080}:8080'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
-        environment:
-            WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
-            IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
             # The wrapper app is mounted to `/var/www/html` folder, as a regular website
             - './wrapper-mingle:/var/www/html'
@@ -24,8 +19,7 @@ services:
             # The wrapper app will use this from composer.json configuration.
             - '.:/var/www/html/packages/mingle'
         networks:
-            - sail
-        depends_on: {  }
+            - web
+
 networks:
-    sail:
-        driver: bridge
+    web:
