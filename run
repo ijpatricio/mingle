@@ -41,9 +41,5 @@ function dev:npm {
     sail npm run dev
 }
 
-function build:prod {
-    docker build -f docker/production/Dockerfile -t mingle-demo .
-}
-
 TIMEFORMAT="Task completed in %3lR"
 time "${@:-default}"
