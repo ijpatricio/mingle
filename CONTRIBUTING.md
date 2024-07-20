@@ -20,3 +20,7 @@ Fork and clone the repository.
 # Vite compilation (wrapper project)
 ./run dev:npm
 ```
+
+## Documentation
+
+The repository for documentation is located at https://github.com/ijpatricio/mingle-docs
