@@ -2,11 +2,8 @@ name: Deploy Mingle-General Demo
 
 on:
   push:
-#  workflow_dispatch:
-#    inputs:
-#      commit-message:
-#        description: 'Commit message'
-#        required: false
+    branches:
+      - main
 
 env:
   space: 'mingle-demo'
@@ -53,22 +50,3 @@ jobs:
             cd ~/spaces/${{ env.space }}
             docker compose up -d --remove-orphans
           '''
-
-#      - name: Create and Test Project
-#        run: |
-#          cd bench/mingle-general
-#          rm .env
-#          cp -f ../../stubs/mingle-general/README.md .
-
-#      - name: Pushes to another repository
-#        uses: cpina/github-action-push-to-another-repository@main
-#        env:
-#          API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
-#        with:
-#          source-directory: 'bench/mingle-general'
-#          destination-github-username: 'ijpatricio'
-#          destination-repository-name: 'minglejs-demo'
-#          user-name: Patricio
-#          user-email: ijpatricio@gmail.com
-#          target-branch: main
-#          commit-message: ${{ inputs.commit-message || env.default-commit-message }}
