@@ -6,7 +6,7 @@
 /art                    export-ignore
 /docker                 export-ignore
 /docs                   export-ignore
-/playwright             export-ignore
+/e2e                    export-ignore
 /tests                  export-ignore
 /wrapper-mingle         export-ignore
 /.dockerignore          export-ignore
