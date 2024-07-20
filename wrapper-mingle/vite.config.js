@@ -3,6 +3,11 @@ import laravel, { refreshPaths } from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
+import findMingles from './vendor/ijpatricio/mingle/resources/js/autoImport.js'
+const mingles = findMingles('resources/js')
+
+console.log('Auto-importing mingles:', mingles)
+
 export default defineConfig({
     resolve: {
         alias: {
@@ -14,8 +19,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/js/react-counter/index.js',
-                'resources/js/vue-counter/index.js',
+                ...mingles,
             ],
             refresh: [
                 ...refreshPaths,
