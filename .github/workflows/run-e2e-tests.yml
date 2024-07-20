@@ -27,7 +27,8 @@ jobs:
         run: |
           npm ci
           npx playwright install --with-deps
-          echo "Installation done".
+          # Wait for the webserver to be ready
+          npx wait-on http://localhost:8080
           npm run test
 
       - uses: actions/upload-artifact@v4
