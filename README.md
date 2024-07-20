@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./docs/logo-cover.png" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
+<img src="./art/logo-cover.png" style="width: 500px; border-radius: 12px; margin: 20px; box-shadow: 5px 5px 20px rgb(45 114 253);" >
 </p>
 
 # MingleJS
@@ -16,7 +16,7 @@ MingleJS allows you to use React/Vue components in your Livewire application, so
 
 MingleJS renders a `div` on the server-side, and then mounts the React/Vue component on the client-side. Each JS component is rendered by a Livewire compoenent, so you get an island of interactivity in your Livewire application, with the JS of your taste.
 
-![Browser with stack of divs and a Mingle](docs/img_1.png)
+![Browser with stack of divs and a Mingle](art/img_1.png)
 
 ## Some included nicety features
 
@@ -25,7 +25,7 @@ In the backend component, you can pass data that the component will have access 
 You can choose to keep using Ajax client - Axios/Fetch/etc.
 But the reality is, for the most part, you can use the convenient way of making server actions, which is Livewire. You get to make server requests just by `$wire.addTodo(todo)`. Find below a simple diagram of how MingleJS works in a page.
 
-![Browser and server showing how they interact winthin a Mingle](docs/img_2.png)
+![Browser and server showing how they interact winthin a Mingle](art/img_2.png)
 
 ## Getting started & Documentation
 
