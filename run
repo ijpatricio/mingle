@@ -18,7 +18,7 @@ function default {
     help
 }
 
-function prepare-repo {
+function prepare:repo {
     rm -rf wrapper-mingle/vendor
     cd wrapper-mingle
     docker run --rm \
@@ -29,16 +29,24 @@ function prepare-repo {
     cd -
 }
 
-function sail {
-    cd wrapper-mingle ; ./vendor/bin/sail $@
+function setIDS {
+    export USER_ID=$(id -u)
+    export GROUP_ID=$(id -g)
+}
+
+function prepare:container {
+    setIDS
+    docker compose build
 }
 
 function dev:server {
-    sail up
+    setIDS
+    docker compose up -d --remove-orphans --force-recreate
 }
 
 function dev:npm {
-    sail npm run dev
+    setIDS
+    docker compose exec webapp bash -c "npm run dev"
 }
 
 TIMEFORMAT="Task completed in %3lR"
