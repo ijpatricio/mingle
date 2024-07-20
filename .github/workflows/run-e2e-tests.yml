@@ -20,10 +20,9 @@ jobs:
       - name: Set up webserver
         run: |
           cd wrapper-mingle
-          composer install
-          export USER_ID=$(id -u)
-          export GROUP_ID=$(id -g)
-          docker compose up -d
+          run prepare:repo
+          run prepare:container
+          run dev:server
 
       - name: Create E2E and Test Project
         if: ${{ false }}
