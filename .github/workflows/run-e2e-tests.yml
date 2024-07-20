@@ -23,9 +23,9 @@ jobs:
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate
+          cd wrapper-mingle ; npm ci ; npm run build ; cd -
           ./run dev:server
           npm ci
-          npm run build
           npx playwright install --with-deps
           # Build JS
           # Wait for the webserver to be ready
