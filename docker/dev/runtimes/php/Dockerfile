@@ -18,6 +18,10 @@ ARG GROUP_ID
 # Install extensions
 RUN install-php-extensions intl
 
+# Install Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+
 # Use the build arguments to change the UID
 # and GID of www-data while also changing
 # the file permissions for NGINX

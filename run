@@ -41,12 +41,12 @@ function prepare:container {
 
 function dev:server {
     setIDS
-    docker compose up -d --remove-orphans --force-recreate
+    docker compose up --remove-orphans --force-recreate
 }
 
 function dev:npm {
     setIDS
-    docker compose exec webapp bash -c "npm run dev"
+    docker compose exec webapp bash -c "npm ci ; npm run dev"
 }
 
 TIMEFORMAT="Task completed in %3lR"
