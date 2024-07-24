@@ -1,7 +1,11 @@
 import React from 'react'
 import {createRoot} from 'react-dom/client'
 
-const createComponent = (mingleId, wireId, Component, options = {}) => {
+const defaultOptions = {
+    
+ };
+
+const createComponent = (mingleId, wireId, Component, options = defaultOptions) => {
 
     const
         el = document.getElementById(mingleId),
@@ -26,16 +30,27 @@ const createComponent = (mingleId, wireId, Component, options = {}) => {
     }
 }
 
-const registerReactMingle = (name, component) => {
-    window.Mingle = window.Mingle || {
-        Elements: {}
-    }
-
-    window.Mingle.Elements[name] = {
-        boot(mingleId, wireId) {
-            createComponent(mingleId, wireId, component)
-        }
-    }
+const registerReactMingle = (name, component, options = defaultOptions) => {
+    return new Promise((resolve, reject) => {
+        window.Mingle = window.Mingle || {
+            Elements: {},
+        };
+  
+        window.Mingle.Elements[name] = {
+            boot(mingleId, wireId) {
+                try {
+                    const result = createComponent(mingleId, wireId, component, options);
+                    if (result) {
+                        resolve(result);
+                    } else {
+                        reject(new Error('Component creation failed'));
+                    }
+                } catch (error) {
+                    reject(error);
+                }
+            },
+        };
+    });
 }
 
 export default registerReactMingle
