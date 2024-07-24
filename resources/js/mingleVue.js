@@ -1,7 +1,7 @@
 import {createApp} from 'vue/dist/vue.esm-bundler'
 
 const defaultOptions = {
-    autoMount: false,
+    autoMount: true,
  };
  
 const createComponent = (mingleId, wireId, component, options = defaultOptions) => {
