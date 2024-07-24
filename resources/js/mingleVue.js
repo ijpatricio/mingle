@@ -1,6 +1,10 @@
 import {createApp} from 'vue/dist/vue.esm-bundler'
 
-const createComponent = (mingleId, wireId, component, options = { autoMount: true }) => {
+const defaultOptions = {
+    autoMount: true,
+ };
+ 
+const createComponent = (mingleId, wireId, component, options = defaultOptions) => {
 
     const
         el = document.getElementById(mingleId),
@@ -45,16 +49,27 @@ const createComponent = (mingleId, wireId, component, options = { autoMount: tru
     }
 }
 
-const registerVueMingle = (name, component) => {
-    window.Mingle = window.Mingle || {
-        Elements: {}
-    }
-
-    window.Mingle.Elements[name] = {
-        boot(mingleId, wireId) {
-            createComponent(mingleId, wireId, component)
-        }
-    }
+const registerVueMingle = (name, component, options = defaultOptions) => {
+    return new Promise((resolve, reject) => {
+        window.Mingle = window.Mingle || {
+            Elements: {},
+        };
+  
+        window.Mingle.Elements[name] = {
+            boot(mingleId, wireId) {
+                try {
+                    const result = createComponent(mingleId, wireId, component, options);
+                    if (result) {
+                        resolve(result);
+                    } else {
+                        reject(new Error('Component creation failed'));
+                    }
+                } catch (error) {
+                    reject(error);
+                }
+            },
+        };
+     });
 }
 
 export default registerVueMingle
