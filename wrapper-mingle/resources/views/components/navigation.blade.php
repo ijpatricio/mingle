@@ -8,6 +8,7 @@
         'React' => 'demo-with-react',
         'Vue' => 'demo-with-vue',
         'All combined' => 'demo-with-all',
+        'Filament' => 'filament.demo.pages.dashboard',
         '↗ Docs' => 'https://minglejs.unitedbycode.com',
         '↗ Demo source code' => 'https://github.com/ijpatricio/minglejs-demo',
     ];
