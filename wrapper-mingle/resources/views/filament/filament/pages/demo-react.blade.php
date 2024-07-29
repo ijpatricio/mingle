@@ -1,3 +1,5 @@
 <x-filament-panels::page>
-    <livewire:react-counter />
+    <x-filament::section>
+        <livewire:react-counter/>
+    </x-filament::section>
 </x-filament-panels::page>

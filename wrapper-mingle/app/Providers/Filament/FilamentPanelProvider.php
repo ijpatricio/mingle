@@ -53,6 +53,7 @@ class FilamentPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->brandName('Filament')
+            ->viteTheme('resources/css/filament/demo/theme.css')
             ->login(\App\Filament\Filament\Pages\Auth\Login::class);
     }
 }
