@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import laravel, { refreshPaths } from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react'
 import path from 'path'
 
 import findMingles from './vendor/ijpatricio/mingle/resources/js/autoImport.js'
@@ -29,6 +30,7 @@ export default defineConfig({
                 'resources/js/**',
             ],
         }),
+        react(),
         vue({
             template: {
                 transformAssetUrls: {
