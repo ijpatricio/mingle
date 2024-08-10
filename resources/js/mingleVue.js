@@ -39,11 +39,6 @@ const createComponent = (mingleId, wireId, component, options = defaultOptions) 
 
     const app = createApp(component, props)
 
-    if (options.createComponent) {
-        options.createComponent({createApp, component, props, el, wire, mingleId, wireId, mingleData})
-        return true
-    }
-
     if (options.autoMount) {
         app.mount(el)
     }
