@@ -15,9 +15,11 @@ class DemoReact extends Page
 
     public function mount()
     {
-        FilamentView::registerRenderHook(
-            name: PanelsRenderHook::HEAD_START,
-            hook: fn() => app(Vite::class)->reactRefresh(),
-        );
+        if (app()->environment('local')) {
+            FilamentView::registerRenderHook(
+                name: PanelsRenderHook::HEAD_START,
+                hook: fn() => app(Vite::class)->reactRefresh(),
+            );
+        }
     }
 }
