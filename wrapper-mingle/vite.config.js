@@ -19,7 +19,9 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                ...mingles,
+                'resources/js/react-counter/index.js',
+                'resources/js/vue-counter/index.js',
+                'resources/css/filament/demo/theme.css',
             ],
             refresh: [
                 ...refreshPaths,
