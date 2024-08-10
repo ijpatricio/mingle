@@ -20,7 +20,7 @@ trait InteractsWithMingles
         $this->mingleId = 'mingle-' . Str::random();
     }
 
-    public function render()
+    public function render(): mixed
     {
         return view('mingle::mingle');
     }
