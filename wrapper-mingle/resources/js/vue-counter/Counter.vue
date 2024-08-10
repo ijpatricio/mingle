@@ -34,6 +34,9 @@ const message = props.mingleData.message
 
         <div> Let's make the operation on the server, for demo purposes. </div>
         <div class="mt-2 flex gap-4 items-center">
+
+            <Button @click="$hello('world!')" label="Hello world!" />
+
             <Button @click="() => count = 1" label="Keep it (reset)" />
             <div> Current Count: {{ count }} </div>
             <Button @click="doubleCurrentCount" label="Double it - and give it to the next person" />

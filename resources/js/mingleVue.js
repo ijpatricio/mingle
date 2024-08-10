@@ -2,8 +2,9 @@ import {createApp} from 'vue/dist/vue.esm-bundler'
 
 const defaultOptions = {
     autoMount: true,
+    createComponent: false,
  };
- 
+
 const createComponent = (mingleId, wireId, component, options = defaultOptions) => {
 
     const
@@ -38,6 +39,11 @@ const createComponent = (mingleId, wireId, component, options = defaultOptions) 
 
     const app = createApp(component, props)
 
+    if (options.createComponent) {
+        options.createComponent({createApp, component, props, el, wire, mingleId, wireId, mingleData})
+        return true
+    }
+
     if (options.autoMount) {
         app.mount(el)
     }
@@ -54,7 +60,7 @@ const registerVueMingle = (name, component, options = defaultOptions) => {
         window.Mingle = window.Mingle || {
             Elements: {},
         };
-  
+
         window.Mingle.Elements[name] = {
             boot(mingleId, wireId) {
                 try {
@@ -71,5 +77,46 @@ const registerVueMingle = (name, component, options = defaultOptions) => {
         };
      });
 }
+
+const createMingle = (name, useCreateApp) => {
+    return new Promise((resolve, reject) => {
+        window.Mingle = window.Mingle || {
+            Elements: {},
+        };
+
+        window.Mingle.Elements[name] = {
+            boot(mingleId, wireId) {
+                try {
+
+                    const
+                        el = document.getElementById(mingleId),
+                        wire = window.Livewire.find(wireId)
+
+                    let mingleData = {}
+
+                    if (el.dataset.mingleData) {
+                        mingleData = JSON.parse(el.dataset.mingleData)
+                    }
+
+                    const props = {
+                        wire, wireId, mingleData,
+                    }
+
+                    const result = useCreateApp({createApp, props, el, wire, mingleId, wireId, mingleData})
+
+                    if (result) {
+                        resolve(result);
+                    } else {
+                        reject(new Error('Component creation failed'));
+                    }
+                } catch (error) {
+                    reject(error);
+                }
+            },
+        };
+    });
+}
+
+export { createMingle }
 
 export default registerVueMingle

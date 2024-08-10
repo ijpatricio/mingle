@@ -9,7 +9,11 @@
         <x-navigation />
 
         <div class="mt-20 bg-white shadow rounded-lg">
+
             @livewire(\App\Livewire\VueCounter::class)
+
+            @livewire(\App\Livewire\VueCounter::class)
+
         </div>
     </div>
 @endsection
