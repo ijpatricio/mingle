@@ -15,7 +15,11 @@ const doubleCurrentCount = () => {
     })
 }
 
-const message = props.mingleData.message
+const message = ref(props.mingleData.message)
+
+props.wire.on('doubleIt', (randomString) => {
+    console.log('Double it! 😎', randomString)
+})
 
 </script>
 
