@@ -3,8 +3,6 @@ name: Run E2E Tests
 on:
   workflow_dispatch:
   push:
-    branches:
-      - prepare-e2e
 
 jobs:
   test-e2e:
