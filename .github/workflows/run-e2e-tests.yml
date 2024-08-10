@@ -3,6 +3,8 @@ name: Create and Test Project
 on:
   workflow_dispatch:
   push:
+    branches:
+      - prepare-e2e
 
 jobs:
   test-e2e:
