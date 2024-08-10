@@ -13,8 +13,12 @@
     <div> Livewire (Interacts with server)</div>
     <div class="mt-2 flex gap-4 items-center">
         <x-button wire:click="keepIt" label="Keep it (reset)" />
-        <div> Current Count: {{ $count }} </div>
-        <x-button wire:click="doubleIt" label="Double it - and give it to the next person" />
+        <div> Current Server Count: {{ $count }} </div>
+        <x-button
+            wire:click="doubleIt"
+            label="Double it - and give it to the next person"
+            data-testid="doubleItServer"
+        />
     </div>
 
     <div class="mt-12"></div>

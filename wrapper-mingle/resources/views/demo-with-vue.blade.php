@@ -12,8 +12,6 @@
 
             @livewire(\App\Livewire\VueCounter::class)
 
-            @livewire(\App\Livewire\VueCounter::class)
-
         </div>
     </div>
 @endsection
