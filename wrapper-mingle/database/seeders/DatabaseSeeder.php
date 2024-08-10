@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Demo Mingle',
-            'email' => 'demo@minglejs.unitedbycode.com',
+            'name' => 'Test User',
+            'email' => 'test@example.com',
         ]);
     }
 }
