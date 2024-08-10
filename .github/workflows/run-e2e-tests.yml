@@ -1,8 +1,10 @@
-name: Create and Test Project
+name: Run E2E Tests
 
 on:
   workflow_dispatch:
   push:
+    branches:
+      - prepare-e2e
 
 jobs:
   test-e2e:
@@ -24,7 +26,7 @@ jobs:
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate
           cd wrapper-mingle ; npm ci ; npm run build ; cd -
-          ./run dev:server
+          ./run ci:server
           npm ci
           npx playwright install --with-deps
           # Build JS
