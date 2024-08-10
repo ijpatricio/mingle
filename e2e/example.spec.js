@@ -47,7 +47,7 @@ test('vue page', async ({page}) => {
 })
 
 
-test.only('filament page', async ({page}) => {
+test('filament page', async ({page}) => {
 
     let locator
 
