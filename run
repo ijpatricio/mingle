@@ -44,6 +44,11 @@ function dev:server {
     docker compose up --remove-orphans --force-recreate
 }
 
+function ci:server {
+    setIDS
+    docker compose up -d --remove-orphans --force-recreate
+}
+
 function dev:npm {
     setIDS
     docker compose exec webapp bash -c "npm ci ; npm run dev"
