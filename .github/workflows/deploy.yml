@@ -15,5 +15,5 @@ jobs:
 
   deploy:
     needs: e2e-tests
-    uses: ./.github/workflows/deploy-mingle-demo.yml
+    uses: ./.github/workflows/run-deployment.yml
     secrets: inherit
