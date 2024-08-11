@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pest-tests:
+    uses: /.github/workflows/run-pest-tests.yml
+
+  e2e-tests:
+    needs: pest-tests
+    uses: /.github/workflows/run-e2e-tests.yml
+
+  deploy:
+    needs: e2e-tests
+    uses: /.github/workflows/deploy-mingle-demo.yml

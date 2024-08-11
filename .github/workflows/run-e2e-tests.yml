@@ -1,8 +1,7 @@
 name: Run E2E Tests
 
 on:
-  workflow_dispatch:
-  push:
+  workflow_call:
 
 jobs:
   test-e2e:
