@@ -1,7 +1,7 @@
 ############################################
 # Base Image
 ############################################
-FROM serversideup/php:8.3-fpm-nginx-bookworm-v3.3.0-beta3 as base
+FROM serversideup/php:8.3-fpm-nginx-bookworm as base
 
 ############################################
 # Development Image
