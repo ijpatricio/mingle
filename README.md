@@ -4,7 +4,7 @@
 
 # MingleJS
 
-<a href="https://github.com/ijpatricio/mingle/actions"><img src="https://github.com/ijpatricio/mingle/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/ijpatricio/mingle/actions"><img src="https://github.com/ijpatricio/mingle/workflows/Tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/dt/ijpatricio/mingle" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/v/ijpatricio/mingle" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/l/ijpatricio/mingle" alt="License"></a>
