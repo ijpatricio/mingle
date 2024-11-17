@@ -4,10 +4,10 @@
 
 # MingleJS
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ijpatricio/mingle.svg?style=flat-square)](https://packagist.org/packages/ijpatricio/mingle)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ijpatricio/mingle/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ijpatricio/mingle/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ijpatricio/mingle/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ijpatricio/mingle/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/ijpatricio/mingle.svg?style=flat-square)](https://packagist.org/packages/ijpatricio/mingle)
+<a href="https://github.com/ijpatricio/mingle/actions"><img src="https://github.com/ijpatricio/mingle/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/dt/ijpatricio/mingle" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/v/ijpatricio/mingle" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/ijpatricio/mingle"><img src="https://img.shields.io/packagist/l/ijpatricio/mingle" alt="License"></a>
 
 As you may already know, [Livewire](https://livewire.laravel.com/) is a full-stack framework for [Laravel](https://laravel.com/) that allows you to build dynamic interfaces using server-side code.
 MingleJS allows you to use React/Vue components in your Livewire application, so you can use the best of both worlds.
