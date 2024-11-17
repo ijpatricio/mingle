@@ -1,4 +1,4 @@
-name: Deploy Mingle-General Demo
+name: Run deployment
 
 on:
   workflow_call:
