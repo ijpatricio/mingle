@@ -6,10 +6,10 @@ on:
       - main
 
 jobs:
-  run-tests:
+  tests:
     uses: ./.github/workflows/tests.yml
 
   deploy:
-    needs: run-tests
+    needs: tests
     uses: ./.github/workflows/run-deployment.yml
     secrets: inherit
