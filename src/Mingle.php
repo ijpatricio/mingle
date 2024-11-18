@@ -20,25 +20,21 @@ class Mingle
     {
         return collect($this->mingles)
             ->unique()
-            ->pipe($this->addReactPreamble(...))
-            ->map(function ($mingle) {
-                if (! is_string($mingle)) {
-                    return $mingle;
-                }
-                return app(Vite::class)($mingle);
-            })
-            ->map->toHtml()
+            ->map(fn($mingle) => app(Vite::class)($mingle)->toHtml())
+            ->pipe($this->addReactPreambleToTheTop(...))
             ->implode(PHP_EOL) . PHP_EOL;
     }
 
-    private function addReactPreamble($mingles): Collection
+    private function addReactPreambleToTheTop($mingles): Collection
     {
-        if (app()->environment('production')) {
-            return $mingles;
-        }
+        $vite = app(Vite::class);
 
-        if(config('mingle.react_preamble_enabled')) {
-            return $mingles->prepend(app(Vite::class)->reactRefresh());
+        $isReactPreambleEnabled = config('mingle.react_preamble_enabled');
+
+        if($vite->isRunningHot() && $isReactPreambleEnabled) {
+            return $mingles->prepend(
+                $vite->reactRefresh()->toHtml()
+            );
         }
 
         return $mingles;
