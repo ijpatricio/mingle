@@ -20,15 +20,16 @@ class VueCounter extends Component implements HasMingles
 
     public function mount()
     {
-        sleep(1);
+//        sleep(3);
     }
 
     public function placeholder()
     {
         return <<<'HTML'
         <!-- Or a loading spinner... -->
-        <div class="flex items-center justify-center text-4xl w-[718px] h-[256px] bg-white rounded-lg">
-            Hang tight, I'm loading...
+        <div class="flex flex-col items-center justify-center gap-4 text-4xl w-[718px] h-[256px] bg-white rounded-lg">
+            <p>I sleep 3 seconds</p>
+            <p>ReactJS App</p>
         </div>
         HTML;
     }

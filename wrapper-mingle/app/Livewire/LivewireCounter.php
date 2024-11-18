@@ -25,9 +25,10 @@ class LivewireCounter extends Component
     public function placeholder()
     {
         return <<<'HTML'
-        <div>
-            <!-- Loading spinner... -->
-            Foo bar I'm loading...
+        <!-- Or a loading spinner... -->
+        <div class="flex flex-col items-center justify-center gap-4 text-4xl w-[660px] h-[364px] bg-white rounded-lg">
+            <p>I sleep 1 second</p>
+            <p>ReactJS App</p>
         </div>
         HTML;
     }
