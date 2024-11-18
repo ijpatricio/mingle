@@ -3,6 +3,7 @@
 namespace Ijpatricio\Mingle;
 
 use Ijpatricio\Mingle\Commands\MingleInstallerCommand;
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Ijpatricio\Mingle\Commands\MingleMakeCommand;
@@ -24,5 +25,14 @@ class MingleServiceProvider extends PackageServiceProvider
                 MingleMakeCommand::class,
                 MingleInstallerCommand::class
             ]);
+
+        $this->app->singleton('mingle', function () {
+            return new Mingle;
+        });
+
+        Blade::directive('mingles', function () {
+            return "<?php echo app('mingle')->mingleScripts(); ?>";
+        });
+
     }
 }

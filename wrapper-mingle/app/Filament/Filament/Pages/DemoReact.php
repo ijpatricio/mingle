@@ -6,6 +6,7 @@ use Filament\Pages\Page;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Foundation\Vite;
+use Illuminate\Support\Facades\Blade;
 
 class DemoReact extends Page
 {
@@ -21,5 +22,9 @@ class DemoReact extends Page
                 hook: fn() => app(Vite::class)->reactRefresh(),
             );
         }
+        FilamentView::registerRenderHook(
+            name: PanelsRenderHook::HEAD_START,
+            hook: fn() => Blade::render('@mingles'),
+        );
     }
 }

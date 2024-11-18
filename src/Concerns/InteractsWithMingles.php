@@ -8,6 +8,11 @@ trait InteractsWithMingles
 {
     public $mingleId;
 
+    public function __construct()
+    {
+        app('mingle')->register($this->component());
+    }
+
     public function mingleData(): array
     {
         return [

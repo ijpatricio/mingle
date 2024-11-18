@@ -2,8 +2,10 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
+#[Lazy]
 class LivewireCounter extends Component
 {
     /**
@@ -15,7 +17,19 @@ class LivewireCounter extends Component
 
     public function mount()
     {
+        sleep(1);
+
         $this->message = 'Message in a bottle 🍾';
+    }
+
+    public function placeholder()
+    {
+        return <<<'HTML'
+        <div>
+            <!-- Loading spinner... -->
+            Foo bar I'm loading...
+        </div>
+        HTML;
     }
 
     public function keepIt()
