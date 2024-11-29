@@ -23,26 +23,9 @@ function findIndexFiles(dir) {
     return results
 }
 
-const findMingles = (rootPath) => {
-
+const findMingles = (rootPath = 'resources/js') => {
     const baseDir = path.resolve(process.cwd(), rootPath)
-
-    return findIndexFiles('resources/js')
-
-    let mingles = indexFiles.map(file => {
-
-        console.log(file)
-
-        return ({
-            input: path.relative(
-                baseDir,
-                file.slice(0, file.length - path.extname(file).length)
-            ),
-            file: file,
-        })
-    })
-
-    console.log(mingles)
+    return findIndexFiles(baseDir)
 }
 
 export default findMingles
