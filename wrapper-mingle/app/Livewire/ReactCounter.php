@@ -19,7 +19,7 @@ class ReactCounter extends Component implements HasMingles
 
     public function mount()
     {
-//        sleep(2);
+        sleep(2);
     }
 
     public function placeholder()
@@ -27,7 +27,7 @@ class ReactCounter extends Component implements HasMingles
         return <<<'HTML'
         <!-- Or a loading spinner... -->
         <div class="flex flex-col items-center justify-center gap-4 text-4xl w-[610px] h-[256px] bg-white rounded-lg">
-            <p>I sleep 2 seconds</p>
+            <p>Heavy query 2 seconds</p>
             <p>ReactJS App</p>
         </div>
         HTML;
