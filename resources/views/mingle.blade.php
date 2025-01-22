@@ -1,7 +1,3 @@
-@push(config('mingle.stack'))
-    @vite($this->component())
-@endpush
-
 {{-- This is the container for the Mingle component.                                     --}}
 {{-- It's an Alpine component, because this it becomes seamless to hook into Livewire's --}}
 {{-- event lifecycle hooks, including some that would need PR atm (wire:navigate)       --}}
