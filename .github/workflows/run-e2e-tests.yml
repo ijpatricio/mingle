@@ -28,8 +28,8 @@ jobs:
           npm ci
           npx playwright install --with-deps
           # Wait for the webserver to be ready
-          curl http://localhost:8080
           npx wait-on http://localhost:8080 -t 15s
+          # curl http://localhost:8080
           npm run test
 
       - uses: actions/upload-artifact@v4
