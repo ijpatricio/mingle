@@ -29,10 +29,12 @@ class MingleServiceProvider extends PackageServiceProvider
         $this->app->singleton('mingle', function () {
             return new Mingle;
         });
+    }
 
+    public function bootingPackage()
+    {
         Blade::directive('mingles', function () {
             return "<?php echo app('mingle')->mingleScripts(); ?>";
         });
-
     }
 }
