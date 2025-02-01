@@ -27,7 +27,7 @@ class TestBladeCommand extends Command
     public function handle()
     {
         $this->info(
-            Blade::render('@mingleScripts')
+            Blade::render('@mingles')
         );
     }
 }

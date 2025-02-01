@@ -24,7 +24,7 @@ class DemoVue extends Page
         }
         FilamentView::registerRenderHook(
             name: PanelsRenderHook::HEAD_START,
-            hook: fn() => Blade::render('@mingleScripts'),
+            hook: fn() => Blade::render('@mingles'),
         );
     }
 }
