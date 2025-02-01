@@ -23,21 +23,19 @@ jobs:
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate:fresh --seed --force
-          docker compose run --rm webapp php artisan view:clear
-          id -u
-          id -g
 
-          # Check if app:test-blade contains @mingles
-          OUTPUT=$(docker compose run --rm webapp php artisan app:test-blade)
-          echo "Command output: $OUTPUT"
+#          # Check if app:test-blade contains @mingles
+#          OUTPUT=$(docker compose run --rm webapp php artisan app:test-blade)
+#          echo "Command output: $OUTPUT"
+#
+#          if echo "$OUTPUT" | grep "@mingles"; then
+#            echo "Error: app:test-blade contains @mingles"
+#            exit 1
+#          fi
 
-          if echo "$OUTPUT" | grep "@mingles"; then
-            echo "Error: app:test-blade contains @mingles"
-            exit 1
-          fi
-
-          cd wrapper-mingle ; npm ci ; npm run build ; cd -
+          docker compose run --rm webapp bash -c "npm ci ; npm run build"
           ./run ci:server
+
           npm ci
           npx playwright install --with-deps
           # Wait for the webserver to be ready

@@ -1,7 +1,7 @@
 .idea
 .phpunit.cache
 build
-composer.lock
+/composer.lock
 coverage
 phpunit.xml
 phpstan.neon
