@@ -25,7 +25,13 @@ jobs:
           docker compose run --rm webapp php artisan migrate:fresh --seed --force
           id -u
           id -g
-          docker compose run --rm webapp php artisan app:test-blade
+
+          # Check if app:test-blade contains @mingle
+            if docker compose run --rm webapp php artisan app:test-blade | grep -q "@mingle"; then
+            echo "Error: app:test-blade contains @mingle"
+            exit 1
+          fi
+
           cd wrapper-mingle ; npm ci ; npm run build ; cd -
           ./run ci:server
           npm ci
