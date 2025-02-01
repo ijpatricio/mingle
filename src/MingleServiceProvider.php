@@ -21,16 +21,16 @@ class MingleServiceProvider extends PackageServiceProvider
             ->name('mingle')
             ->hasConfigFile()
             ->hasViews()
-            ->hasCommands(...[
+            ->hasCommands(
                 MingleMakeCommand::class,
-                MingleInstallerCommand::class
-            ]);
+                MingleInstallerCommand::class,
+            );
 
         $this->app->singleton('mingle', function () {
             return new Mingle;
         });
 
-        Blade::directive('mingleScripts', function () {
+        Blade::directive('mingles', function () {
             return "<?php echo app('mingle')->mingleScripts(); ?>";
         });
 

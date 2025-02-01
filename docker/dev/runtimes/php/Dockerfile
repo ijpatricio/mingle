@@ -1,12 +1,12 @@
 ############################################
 # Base Image
 ############################################
-FROM serversideup/php:8.3-fpm-nginx-bookworm as base
+FROM serversideup/php:8.3-fpm-nginx-bookworm AS base
 
 ############################################
 # Development Image
 ############################################
-FROM base as development
+FROM base AS development
 
 # Switch to root so we can do root things
 USER root

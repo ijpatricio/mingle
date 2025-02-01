@@ -27,7 +27,6 @@ jobs:
           ./run ci:server
           npm ci
           npx playwright install --with-deps
-          # Build JS
           # Wait for the webserver to be ready
           curl http://localhost:8080
           npx wait-on http://localhost:8080 -t 15s
