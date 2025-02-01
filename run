@@ -54,5 +54,11 @@ function dev:npm {
     docker compose exec webapp bash -c "npm ci ; npm run dev"
 }
 
+function test:watch {
+    gh workflow run run-e2e-tests.yml && \
+    sleep 4 && \
+    gh run watch $(gh run list --workflow=run-e2e-tests.yml --limit=1 --json databaseId --jq '.[0].databaseId')
+}
+
 TIMEFORMAT="Task completed in %3lR"
 time "${@:-default}"

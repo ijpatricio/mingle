@@ -27,7 +27,7 @@ class TestBladeCommand extends Command
     public function handle()
     {
         $directives = Blade::getCustomDirectives();
-        dd(array_keys($directives));
+        print_r(array_keys($directives));
 
 
         $this->info(
