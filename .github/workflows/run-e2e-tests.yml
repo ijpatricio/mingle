@@ -23,6 +23,8 @@ jobs:
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate:fresh --seed --force
+          id -u
+          id -g
           docker compose run --rm webapp php artisan app:test-blade
           cd wrapper-mingle ; npm ci ; npm run build ; cd -
           ./run ci:server
