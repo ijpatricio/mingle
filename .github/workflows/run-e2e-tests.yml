@@ -24,15 +24,6 @@ jobs:
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate:fresh --seed --force
 
-#          # Check if app:test-blade contains @mingles
-#          OUTPUT=$(docker compose run --rm webapp php artisan app:test-blade)
-#          echo "Command output: $OUTPUT"
-#
-#          if echo "$OUTPUT" | grep "@mingles"; then
-#            echo "Error: app:test-blade contains @mingles"
-#            exit 1
-#          fi
-
           docker compose run --rm webapp bash -c "npm ci ; npm run build"
           ./run ci:server
 
@@ -44,7 +35,6 @@ jobs:
           npm run test
 
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: playwright-report
           path: playwright-report/
