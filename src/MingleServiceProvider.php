@@ -4,6 +4,7 @@ namespace Ijpatricio\Mingle;
 
 use Ijpatricio\Mingle\Commands\MingleInstallerCommand;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\View\Compilers\BladeCompiler;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Ijpatricio\Mingle\Commands\MingleMakeCommand;
@@ -33,7 +34,16 @@ class MingleServiceProvider extends PackageServiceProvider
 
     public function packageBooted()
     {
-        Blade::directive('mingleScripts', function () {
+        if ($this->app->resolved('blade.compiler')) {
+            $this->registerDirective($this->app['blade.compiler']);
+        } else {
+            $this->app->afterResolving('blade.compiler', $this->registerDirective(...));
+        }
+    }
+
+    protected function registerDirective(BladeCompiler $blade): void
+    {
+        $blade->directive('mingleScripts', function () {
             return "<?php echo app('mingle')->mingleScripts(); ?>";
         });
     }
