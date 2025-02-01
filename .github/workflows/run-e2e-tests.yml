@@ -23,12 +23,13 @@ jobs:
           ./run prepare:container
           touch wrapper-mingle/database/database.sqlite
           docker compose run --rm webapp php artisan migrate:fresh --seed --force
+          docker compose run --rm webapp php artisan view:clear
           id -u
           id -g
 
-          # Check if app:test-blade contains @mingle
-            if docker compose run --rm webapp php artisan app:test-blade | grep -q "@mingle"; then
-            echo "Error: app:test-blade contains @mingle"
+          # Check if app:test-blade contains @mingles
+            if docker compose run --rm webapp php artisan app:test-blade | grep -q "@mingles"; then
+            echo "Error: app:test-blade contains @mingles"
             exit 1
           fi
 
