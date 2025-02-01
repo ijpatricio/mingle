@@ -2,6 +2,7 @@ name: Run E2E Tests
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   test-e2e:

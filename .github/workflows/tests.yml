@@ -13,9 +13,7 @@ jobs:
       - run: echo "Just pass"
 
   pest-tests:
-    if: false
     uses: ./.github/workflows/run-pest-tests.yml
 
   e2e-tests:
-    if: false
     uses: ./.github/workflows/run-e2e-tests.yml
