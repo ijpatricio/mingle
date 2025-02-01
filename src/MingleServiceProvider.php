@@ -44,7 +44,7 @@ class MingleServiceProvider extends PackageServiceProvider
     protected function registerDirective(BladeCompiler $blade): void
     {
         dd('fooo');
-        
+
         $blade->directive('mingles', function () {
             return "<?php echo app('mingle')->mingleScripts(); ?>";
         });
