@@ -33,9 +33,6 @@ class MingleServiceProvider extends PackageServiceProvider
 
 
         Blade::directive('mingles', function () {
-
-             dd('fooo');
-
             return "<?php echo app('mingle')->mingleScripts(); ?>";
         });
     }
