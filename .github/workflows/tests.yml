@@ -7,11 +7,6 @@ on:
 
 jobs:
 
-  just-pass:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Just pass"
-
   pest-tests:
     uses: ./.github/workflows/run-pest-tests.yml
 
