@@ -52,10 +52,9 @@
             "@composer run prepare",
             "@php vendor/bin/testbench workbench:build --ansi"
         ],
-        "start": [
+        "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
+            "npx concurrently \"./run dev:server\" \"wait-on tcp:8080 && ./run dev:npm\""
         ],
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
