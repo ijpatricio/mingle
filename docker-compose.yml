@@ -6,7 +6,7 @@ services:
           args:
             USER_ID: $USER_ID
             GROUP_ID: $GROUP_ID
-        image: minglejs-wrapper
+        image: ghcr.io/ijpatricio/minglejs-wrapper:latest
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
