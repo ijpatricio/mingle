@@ -28,7 +28,7 @@ jobs:
           id -g
 
           # Check if app:test-blade contains @mingles
-            if docker compose run --rm webapp php artisan app:test-blade | grep "@mingles"; then
+          if docker compose run --rm webapp php artisan app:test-blade | grep "@mingles"; then
             echo "Error: app:test-blade contains @mingles"
             exit 1
           fi

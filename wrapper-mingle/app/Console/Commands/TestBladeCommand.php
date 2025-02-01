@@ -26,6 +26,10 @@ class TestBladeCommand extends Command
      */
     public function handle()
     {
+        $directives = Blade::getCustomDirectives();
+        dd(array_keys($directives));
+
+
         $this->info(
             Blade::render('@mingles')
         );
