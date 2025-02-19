@@ -7,8 +7,6 @@ use Illuminate\Support\Collection;
 
 class Mingle
 {
-    protected array $mingles = [];
-
     public function asset(string $mingle): string
     {
         $mingle = app(Vite::class)($mingle)->toHtml();
