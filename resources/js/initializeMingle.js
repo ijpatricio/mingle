@@ -43,8 +43,8 @@ export default function initializeMingle(Livewire, config){
 
         // Cleanup is called just before Livewire removes the element from the DOM
         cleanup(() => {
-            window.Mingle.components[component_name].unmount();
-            delete window.Mingle.components[component_name];
+            window.Mingle.Elements[component_name].unmount();
+            delete window.Mingle.Elements[component_name];
         })
     });
 
