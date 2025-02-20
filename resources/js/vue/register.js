@@ -1,6 +1,5 @@
+import registerMingle from "../register";
+
 export default function registerVueMingle(name, Component){
-    window.Mingle.components[name] = {
-        renderer: "vue",
-        Component: Component,
-    };
+    registerMingle("vue", name, Component);
 }

@@ -1,6 +1,5 @@
+import registerMingle from "../register";
+
 export default function registerReactMingle(name, Component){
-    window.Mingle.components[name] = {
-        renderer: "react",
-        Component: Component,
-    };
+    registerMingle("react", name, Component);
 }

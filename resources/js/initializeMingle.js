@@ -4,7 +4,7 @@ const defaultConfig = {
     renderAttemptDelay: 100
 }
 
-export function initializeMingle(Livewire, config){
+export default function initializeMingle(Livewire, config){
     // Initialize the Mingle Global
     window.Mingle = {
         Elements: {},
