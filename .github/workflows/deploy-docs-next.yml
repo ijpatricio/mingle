@@ -2,9 +2,11 @@ name: Deploy Docs-Next
 
 on:
   workflow_dispatch:
-#  push:
-#    branches:
-#      - main
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
 
 env:
   space: 'mingle-next-docs'
