@@ -1,6 +1,7 @@
 services:
   web:
     image: mingle-next-docs
+    container_name: mingle-next-docs
     ports:
       - "4321:4321"
 
