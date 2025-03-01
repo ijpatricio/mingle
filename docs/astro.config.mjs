@@ -9,7 +9,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   integrations: [
       starlight({
-          title: 'Docs with Tailwind',
+          title: 'Mingle JS',
           social: {
               github: 'https://github.com/withastro/starlight',
           },
