@@ -31,6 +31,7 @@ jobs:
       - name: Build and push the Docker image
         run: |
           cd docs
+
           docker build . --tag ${{ env.image }}:$SHA_SHORT
 
           echo "Pushing image to the server..."
@@ -44,7 +45,7 @@ jobs:
             mkdir -p storage/app storage/logs
           '''
 
-          scp docker/production/docker-compose.production.yml \
+          scp docker-compose.production.yml \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }}:spaces/${{ env.space }}/docker-compose.yml
 
           ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
