@@ -28,7 +28,7 @@ jobs:
           ./run ci:server
 
           npm ci
-          npx playwright install chrome --with-deps
+          npx playwright install chromium --with-deps
           # Wait for the webserver to be ready
           npx wait-on http://localhost:8080 -t 15s
           # curl http://localhost:8080
