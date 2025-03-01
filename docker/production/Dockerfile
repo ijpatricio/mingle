@@ -1,4 +1,4 @@
-FROM serversideup/php:8.3-fpm-nginx-bookworm-v3.3.0-beta3 as starting_point
+FROM serversideup/php:8.3-fpm-nginx-bookworm as starting_point
 
 # Switch to root so we can do root things
 USER root
