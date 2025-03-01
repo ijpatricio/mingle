@@ -7,36 +7,23 @@ use Illuminate\Support\Collection;
 
 class Mingle
 {
-    protected array $mingles = [];
-
-    public function register($mingle): self
+    public function asset(string $mingle): string
     {
-        $this->mingles[] = $mingle;
+        $mingle = app(Vite::class)($mingle)->toHtml();
 
-        return $this;
+        return $this->addReactPreambleToTheTop($mingle);
     }
 
-    public function mingleScripts(): string
-    {
-        return collect($this->mingles)
-            ->unique()
-            ->map(fn($mingle) => app(Vite::class)($mingle)->toHtml())
-            ->pipe($this->addReactPreambleToTheTop(...))
-            ->implode(PHP_EOL) . PHP_EOL;
-    }
-
-    private function addReactPreambleToTheTop($mingles): Collection
+    private function addReactPreambleToTheTop($mingle): string
     {
         $vite = app(Vite::class);
 
         $isReactPreambleEnabled = config('mingle.react_preamble_enabled');
 
         if($vite->isRunningHot() && $isReactPreambleEnabled) {
-            return $mingles->prepend(
-                $vite->reactRefresh()->toHtml()
-            );
+            return $vite->reactRefresh()->toHtml() . PHP_EOL . $mingle;
         }
 
-        return $mingles;
+        return $mingle;
     }
 }
