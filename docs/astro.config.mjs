@@ -11,7 +11,7 @@ export default defineConfig({
       starlight({
           title: 'Mingle JS',
           social: {
-              github: 'https://github.com/withastro/starlight',
+              github: 'https://github.com/ijpatricio/mingle',
           },
           sidebar: [
               {
@@ -22,8 +22,8 @@ export default defineConfig({
                   ],
               },
               {
-                  label: 'Reference',
-                  autogenerate: { directory: 'reference' },
+                  label: 'Contributor Guide',
+                  autogenerate: { directory: 'contributor-guide' },
               },
           ],
           customCss: ['./src/tailwind.css'],

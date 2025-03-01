@@ -6,3 +6,14 @@
 Add additional Tailwind styles to this file, for example with @layer:
 https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
 */
+
+.hero > img {
+    border-radius: 12px;
+    margin: 20px; /* Set your desired margin */
+    box-shadow: 5px 5px 20px rgb(45 114 253); /* Adjust the shadow color and blur radius as needed */
+}
+
+/*
+ #bd34fe
+ #47caff
+*/
