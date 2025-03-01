@@ -1,5 +1,5 @@
 @assets
-    <?php echo app('mingle')->asset($this->component()); ?>
+    @vite($this->component())
 @endassets
 
 <div data-mingle-component="{{ $this->component() }}" data-mingle-data="{{ json_encode($this->mingleData()) }}">

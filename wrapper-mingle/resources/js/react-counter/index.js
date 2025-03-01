@@ -1,4 +1,4 @@
-import mingle from '@mingle/mingleReact.jsx'
-import Counter from './Counter.jsx'
+import registerMingle from "@mingle/react/register";
+import Counter from "./Counter.jsx";
 
-mingle('resources/js/react-counter/index.js', Counter)
+registerMingle("resources/js/react-counter/index.js", Counter);

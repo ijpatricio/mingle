@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @viteReactRefresh
 
         <!-- Styles -->
         @livewireStyles
@@ -29,6 +30,6 @@
             </main>
         </div>
 
-        @livewireScripts
+        @livewireScriptConfig
     </body>
 </html>
