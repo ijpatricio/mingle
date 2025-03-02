@@ -10,7 +10,7 @@ class Showcases
             new Showcase(
                 title: 'React Simple',
                 description: 'A simple "Hello World" example.',
-                routeName: 'react-simple',
+                routeName: 'react-hello-world',
             ),
             new Showcase(
                 title: 'React Counter',

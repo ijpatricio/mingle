@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
-test('homepage', async ({page}) => {
+test('Welcome Page', async ({page}) => {
     await page.goto('/')
     const locator = page.locator('body')
-    await expect(locator).toContainText("Laravel has an incredibly rich ecosystem")
+    await expect(locator).toContainText("Welcome to Mingle JS")
 })
