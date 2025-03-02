@@ -7,9 +7,9 @@
 /docker                 export-ignore
 /docs                   export-ignore
 /e2e                    export-ignore
+/playground             export-ignore
 /tests                  export-ignore
 /wrapper-mingle         export-ignore
-/playground             export-ignore
 /.dockerignore          export-ignore
 /.editorconfig          export-ignore
 /.gitattributes         export-ignore
@@ -17,6 +17,8 @@
 /CHANGELOG.md           export-ignore
 /CONTRIBUTING.md        export-ignore
 /docker-compose.yml     export-ignore
+/package.json           export-ignore
+/package-lock.json      export-ignore
 /phpunit.xml.dist       export-ignore
 /README.md              export-ignore
 /run                    export-ignore
