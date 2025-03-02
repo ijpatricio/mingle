@@ -16,23 +16,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-
-      - name: Set up webserver and Test Project
+      - name: Set up root Playwright
         run: |
-          ./run prepare:repo
-          ./run prepare:container
-          touch wrapper-mingle/database/database.sqlite
-          docker compose run --rm webapp php artisan migrate:fresh --seed --force
-
-          docker compose run --rm webapp bash -c "npm ci ; npm run build"
-          ./run ci:server
-
           npm ci
           npx playwright install chromium --with-deps
-          # Wait for the webserver to be ready
-          npx wait-on http://localhost:8000 -t 15s
+      - name: Set up Playground
+        run: |
+          ./run playground:setup
+      - name: Run the E2E tests
+        run: |
           npm run test
-
       - uses: actions/upload-artifact@v4
         with:
           name: playwright-report
