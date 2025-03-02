@@ -27,7 +27,8 @@
                         </li>
                     </ul>
 
-                    <livewire:todo-list />
+                    <livewire:kanban />
+
                 </div>
             </main>
         </div>

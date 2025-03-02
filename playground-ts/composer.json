@@ -8,8 +8,17 @@
         "framework"
     ],
     "license": "MIT",
+    "repositories": [{
+        "type": "path",
+        "url": "../",
+        "options": {
+            "symlink": true
+        }
+    }
+    ],
     "require": {
         "php": "^8.2",
+        "ijpatricio/mingle": "*",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6"
@@ -71,6 +80,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
