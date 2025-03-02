@@ -13,8 +13,12 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.tsx'],
-            ssr: 'resources/js/ssr.jsx',
+            input: [
+                'resources/css/app.css',
+                'resources/js/react-counter/index.js',
+                'resources/js/vue-counter/index.js',
+                'resources/js/HelloWorld/index.js',
+            ],
             refresh: true,
         }),
         react(),
