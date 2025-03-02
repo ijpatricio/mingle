@@ -17,7 +17,7 @@ If you want to make a change that needs to see changes locally, then follow thes
 
 - Clone/fork the repo
 - In the docs root folder, install and run the project:
-  ```
+  ```bash title="Get documentation running locally"
   cd docs
   npm ci
   npm run dev
