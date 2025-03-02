@@ -9,7 +9,7 @@ sidebar:
 
 - Clone/fork the repo.
 - Install `composer` and `npm` dependencies
-  ```bash title="NPM dependencies"
+  ```bash title="Install dependencies"
   composer i
   npm ci
   ```
