@@ -8,7 +8,7 @@ phpstan.neon
 testbench.yaml
 vendor
 node_modules
-.env
+/.env
 /test-results/
 /playwright-report/
 /blob-report/

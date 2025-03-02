@@ -60,5 +60,18 @@ function test:watch {
     gh run watch $(gh run list --workflow=run-e2e-tests.yml --limit=1 --json databaseId --jq '.[0].databaseId')
 }
 
+function playground:setup() {
+    cd playground
+    composer install
+    npm ci
+    touch database/database.sqlite
+    php artisan migrate:fresh --seed
+}
+
+function playground:run() {
+    cd playground
+    composer dev
+}
+
 TIMEFORMAT="Task completed in %3lR"
 time "${@:-default}"
