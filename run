@@ -61,7 +61,7 @@ function test:watch {
 }
 
 function playground:setup() {
-    cd playground
+    cd playground-ts
     composer install
     npm ci
     touch database/database.sqlite
@@ -69,7 +69,7 @@ function playground:setup() {
 }
 
 function playground:run() {
-    cd playground
+    cd playground-ts
     composer dev
 }
 
