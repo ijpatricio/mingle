@@ -74,7 +74,7 @@ module.exports = defineConfig({
     /* Run your local dev server before starting the tests */
     webServer: {
         //command: './run dev:server',
-        command: './run playground:run',
+        command: 'cd playground ; php artisan serve',
         timeout: 30 * 1000,
         url: projectUrl,
         reuseExistingServer: true,
