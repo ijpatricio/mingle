@@ -23,6 +23,9 @@ jobs:
       - name: Set up Playground
         run: |
           ./run playground:setup
+          # In CI we build Vite assets
+          cd playground
+          npm run build
       - name: Run the E2E tests
         run: |
           echo "Running Playwright"
