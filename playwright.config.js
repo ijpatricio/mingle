@@ -7,7 +7,7 @@ const {defineConfig, devices} = require('@playwright/test')
  */
 // require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
-const projectUrl = 'http://localhost:8080'
+const projectUrl = 'http://localhost:8000'
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -73,7 +73,8 @@ module.exports = defineConfig({
 
     /* Run your local dev server before starting the tests */
     webServer: {
-        command: './run dev:server',
+        //command: './run dev:server',
+        command: './run playground:run',
         timeout: 30 * 1000,
         url: projectUrl,
         reuseExistingServer: true,
