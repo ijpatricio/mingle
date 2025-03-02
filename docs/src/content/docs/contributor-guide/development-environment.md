@@ -1,6 +1,8 @@
 ---
 title: Development Environment
 description: Up and running for development
+sidebar:
+    order: 3
 ---
 
 ## Up and running
@@ -21,10 +23,16 @@ description: Up and running for development
 The playground is a Laravel application that has the package symlinked to the vendor directory, so that
  we can browse the app having the package source code - immediately ready to tinker on the UI.  
 
-Let's bring the playground up, by running:
+Let's set up the playground up, by running:
 ```
 ./run playground:setup
+```
 
+We just need to that the first time.
+
+To get it to Serve the site, and Vite compilation, now run:
+
+```
 ./run playground:run
 ```
 

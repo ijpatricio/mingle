@@ -1,6 +1,8 @@
 ---
 title: Documentation
 description: Contribute to Documentation
+sidebar:
+    order: 2
 ---
 
 The documentation - the page you're visiting - is built in

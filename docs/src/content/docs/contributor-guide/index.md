@@ -1,6 +1,12 @@
 ---
 title: Contributor Guide
 description: Contributor guidance and reference
+sidebar:
+    label: Overview
+    order: 1
+    badge:
+        text: Thank you!
+        variant: tip
 ---
 
 ## Thank you!

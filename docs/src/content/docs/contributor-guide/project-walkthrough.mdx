@@ -1,0 +1,25 @@
+---
+title: Project walkthrough
+description: Get to know the structure
+sidebar:
+    order: 4
+---
+The Playground's home page is a list of the `Showcases` available.
+
+A `Showcase` is a page where we can tinker with a defined scenario for the Mingle. They are defined in `app/Showcases.php`:
+
+We might want to add one, for a new feature. We should then add a Showcase, and a description.
+
+This will add an entry to the welcome and allow contributors to have an overview with context.
+
+```php
+    // ...
+
+    new Showcase(
+        title: 'React Simple',
+        description: 'A simple "Hello World" example.',
+        routeName: 'react-simple',
+    ),
+
+    // ....
+```
