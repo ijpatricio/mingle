@@ -22,6 +22,11 @@ class Showcases
                 description: 'A counter in Vue.',
                 routeName: 'vue-counter',
             ),
+            new Showcase(
+                title: 'Friends Travel Expenses',
+                description: 'A POC for nesting Mingles.',
+                routeName: 'friends-travel-expenses',
+            ),
         ];
     }
 }
