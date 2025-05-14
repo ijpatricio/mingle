@@ -1,0 +1,32 @@
+<?php
+
+namespace {{ namespace }};
+
+use Ijpatricio\Mingle\Concerns\InteractsWithMingles;
+use Ijpatricio\Mingle\Contracts\HasMingles;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+
+#[Layout('components.layouts.mingle')] 
+class {{ class }} extends Component implements HasMingles
+{
+    use InteractsWithMingles;
+
+    public function component(): string
+    {
+        return '{{ $mingleFilePath }}';
+    }
+
+    public function mingleData(): array
+    {
+        return [
+            'message' => 'Message in a bottle 🍾',
+        ];
+    }
+
+    public function doubleIt($amount)
+    {
+        return $amount * 2;
+    }
+}
