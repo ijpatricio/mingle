@@ -12,7 +12,7 @@ Fork and clone the repository.
 
 ```
 # Pre-requisites
-./run prepare-repo
+./run prepare:repo
 
 # PHP server (wrapper project), will run on the port defined in `wrapper-mingle/.env` file.
 ./run dev:server
