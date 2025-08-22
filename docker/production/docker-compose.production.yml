@@ -10,8 +10,3 @@ services:
     environment:
       - PHP_OPCACHE_ENABLE=1
       - AUTORUN_ENABLED=true
-    networks: [web]
-
-networks:
-  web:
-    external: true
